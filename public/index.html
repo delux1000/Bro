@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfections Care Ltd · Quality Home Care Across the UK</title>
+    <title>Perfections Care Ltd · Quality Home Care</title>
     
     <!-- Open Graph / WhatsApp / Social Media Preview -->
-    <meta property="og:title" content="Perfections Care Ltd - Compassionate Healthcare">
-    <meta property="og:description" content="Professional care for grandparents and loved ones across the UK. 20+ specialist services.">
+    <meta property="og:title" content="Perfections Care Ltd">
+    <meta property="og:description" content="Professional care services">
     <meta property="og:image" content="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=630&fit=crop">
     <meta property="og:url" content="https://perfectionscareltd.com">
     <meta name="twitter:card" content="summary_large_image">
@@ -28,7 +28,6 @@
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         :root { --primary: #2a6f97; --primary-light: #1e3a5f; --accent: #4a9eff; --grey-light: #1e2f45; --border-light: #2a3f55; --star: #ffb74d; }
         
-        /* rainbow animation for logo */
         @keyframes rainbow { 
             0% { color: #ff6b6b; text-shadow: 0 0 10px #ff6b6b; }
             14% { color: #ffb74d; text-shadow: 0 0 10px #ffb74d; }
@@ -99,9 +98,6 @@
         .popup-form h3 { margin-bottom: 20px; color: var(--accent); display: flex; align-items: center; gap: 10px; }
         .popup-form input { width: 100%; padding: 12px 15px; margin-bottom: 15px; border-radius: 30px; border: 1px solid var(--border-light); background: #0e2a40; color: #ffffff; font-family: 'Inter', sans-serif; }
         .popup-form input:focus { outline: 2px solid var(--accent); }
-        .address-suggestions { background: #0e2a40; border-radius: 15px; max-height: 150px; overflow-y: auto; margin-bottom: 15px; display: none; }
-        .address-suggestions div { padding: 10px 15px; cursor: pointer; border-bottom: 1px solid var(--border-light); }
-        .address-suggestions div:hover { background: var(--accent); color: #0a1a2f; }
         .popup-form .btn { width: 100%; margin-top: 10px; }
         .close-popup { position: absolute; top: 15px; right: 15px; cursor: pointer; font-size: 1.5rem; color: #cccccc; }
         .close-popup:hover { color: var(--accent); }
@@ -164,13 +160,13 @@
         .testimonial-card:hover { border-color: var(--accent); transform: translateY(-5px); }
         .stars { color: var(--star); font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 18px; }
         .testimonial-card p { font-style: italic; margin-bottom: 24px; color: #ffffff; }
-        .author { font-weight: 700; color: #ffffff; }
         
         .page-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin: 40px 0; }
         .page-card { background: #1e3a5f; border-radius: 30px; padding: 25px 15px; text-align: center; border: 1px solid var(--border-light); transition: 0.3s; text-decoration: none; color: inherit; display: block; }
         .page-card:hover { border-color: var(--accent); background: #1e4f7a; transform: scale(1.05); box-shadow: 0 10px 20px rgba(74, 158, 255, 0.2); }
         .page-icon { font-size: 2.5rem; margin-bottom: 15px; transition: 0.3s; }
         .page-card:hover .page-icon { transform: rotate(5deg); }
+        .page-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; color: #ffffff; }
         
         .footer { background: #051220; color: #cccccc; padding: 48px 0 24px; border-top: 6px solid var(--accent); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 40px; }
@@ -179,7 +175,6 @@
         .footer a:hover { color: #ffffff; transform: translateX(5px); }
         .copyright { text-align: center; padding-top: 50px; color: #888888; }
         
-        /* enhanced user experience elements */
         .user-greeting { 
             position: fixed; 
             top: 100px; 
@@ -258,14 +253,12 @@
         <h3><span>📋</span> Quick enquiry</h3>
         <input type="text" id="nameInput" placeholder="Your name *">
         <input type="tel" id="phoneInput" placeholder="Phone number *">
-        <input type="text" id="addressInput" placeholder="Start typing your address *" autocomplete="off">
-        <div class="address-suggestions" id="addressSuggestions"></div>
         <button class="btn" id="connectBtn">Connect →</button>
     </div>
 
     <div class="container">
         <div class="ad-banner">
-            <span>🏆 Specialist care for grandparents · 20+ services</span>
+            <span>🏆 Specialist care services</span>
             <small>Compassionate, professional, trusted</small>
             <a href="contact.html" class="pill-link">Free consultation</a>
         </div>
@@ -276,7 +269,7 @@
         <div class="welcome-message" id="welcomeMessage"></div>
     </div>
 
-    <!-- dynamic media gallery with grandparents and care images -->
+    <!-- dynamic media gallery -->
     <div class="container">
         <div class="media-gallery" id="mediaGallery"></div>
     </div>
@@ -284,9 +277,9 @@
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <div class="hero-badge">❤️ Specialist care for grandparents</div>
-                <h2>Professional care <span>for your loved ones</span> across the UK</h2>
-                <p class="hero-desc" style="color: #cccccc;">Perfections Care Ltd provides person‑centred support for grandparents and families nationwide.</p>
+                <div class="hero-badge">❤️ Professional care services</div>
+                <h2>Quality care <span>for your loved ones</span></h2>
+                <p class="hero-desc" style="color: #cccccc;">Perfections Care Ltd provides person‑centred support for families nationwide.</p>
                 <div>
                     <a href="services.html" class="btn">Our services</a>
                     <a href="contact.html" class="btn btn-outline">Request callback</a>
@@ -295,31 +288,31 @@
             <div style="flex:1; min-width:260px; background: #1e3a5f; border-radius: 60px; padding: 20px; text-align: center;">
                 <div style="background: #0d263b; border-radius: 40px; padding: 40px 20px;">
                     <span style="font-size: 4rem;">👵👴❤️</span>
-                    <p style="margin-top: 15px;">Specialist care for grandparents</p>
+                    <p style="margin-top: 15px;">Professional care services</p>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="container" style="display:flex; gap:15px; flex-wrap:wrap; margin:20px 0;">
-        <span class="uk-stamp">Grandparents</span>
         <span class="uk-stamp">Elderly care</span>
         <span class="uk-stamp">Dementia</span>
         <span class="uk-stamp">Companionship</span>
+        <span class="uk-stamp">Live-in care</span>
     </div>
 
     <section style="padding: 40px 0;">
         <div class="container">
             <h2 class="section-title">Explore our website</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 30px; color: #cccccc;">Everything you need to know about caring for your loved ones.</p>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; color: #cccccc;">Everything you need to know about our services.</p>
             <div class="page-grid">
-                <a href="about.html" class="page-card"><div class="page-icon">👥</div><h3>About us</h3><p>Meet our team</p></a>
-                <a href="services.html" class="page-card"><div class="page-icon">📋</div><h3>Services</h3><p>20+ options</p></a>
-                <a href="blog.html" class="page-card"><div class="page-icon">✍️</div><h3>Blog</h3><p>Advice</p></a>
-                <a href="contact.html" class="page-card"><div class="page-icon">📞</div><h3>Contact</h3><p>Get in touch</p></a>
-                <a href="testimonials.html" class="page-card"><div class="page-icon">⭐</div><h3>Testimonials</h3><p>Stories</p></a>
-                <a href="careers.html" class="page-card"><div class="page-icon">💼</div><h3>Careers</h3><p>Join us</p></a>
-                <a href="funding.html" class="page-card"><div class="page-icon">💰</div><h3>Funding</h3><p>Payment</p></a>
+                <a href="about.html" class="page-card"><div class="page-icon">👥</div><h3>About us</h3></a>
+                <a href="services.html" class="page-card"><div class="page-icon">📋</div><h3>Services</h3></a>
+                <a href="blog.html" class="page-card"><div class="page-icon">✍️</div><h3>Blog</h3></a>
+                <a href="contact.html" class="page-card"><div class="page-icon">📞</div><h3>Contact</h3></a>
+                <a href="testimonials.html" class="page-card"><div class="page-icon">⭐</div><h3>Testimonials</h3></a>
+                <a href="careers.html" class="page-card"><div class="page-icon">💼</div><h3>Careers</h3></a>
+                <a href="funding.html" class="page-card"><div class="page-icon">💰</div><h3>Funding</h3></a>
             </div>
         </div>
     </section>
@@ -327,9 +320,9 @@
     <section class="services-preview">
         <div class="container">
             <p class="section-sub">Specialist care</p>
-            <h2 class="section-title">Services for grandparents</h2>
+            <h2 class="section-title">Our services</h2>
             <div class="service-cards">
-                <div class="card"><div class="card-icon">👵</div><h4>Elderly care</h4><p>For grandparents at home</p></div>
+                <div class="card"><div class="card-icon">👵</div><h4>Elderly care</h4><p>Support at home</p></div>
                 <div class="card"><div class="card-icon">🧠</div><h4>Dementia support</h4><p>Memory care</p></div>
                 <div class="card"><div class="card-icon">🚗</div><h4>Companionship</h4><p>Social visits</p></div>
                 <div class="card"><div class="card-icon">💊</div><h4>Medication</h4><p>Reminders</p></div>
@@ -343,12 +336,12 @@
 
     <section class="testimonials">
         <div class="container">
-            <p class="section-sub">Family stories</p>
-            <h2 class="section-title">What families say about our care</h2>
+            <p class="section-sub">Client stories</p>
+            <h2 class="section-title">What people say about us</h2>
             <div class="testimonial-grid">
-                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"The care for my grandad has been wonderful. Kind, patient and professional."</p><div class="author">— Sarah, Manchester</div></div>
-                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"They treat grandma like family. So grateful for their support."</p><div class="author">— David, Birmingham</div></div>
-                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Professional, caring and reliable. Highly recommended."</p><div class="author">— Margaret, London</div></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Excellent care and support. Highly professional."</p></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Wonderful service, kind and attentive staff."</p></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Professional, caring and reliable."</p></div>
             </div>
         </div>
     </section>
@@ -357,9 +350,8 @@
         <div class="container">
             <div style="background: #1e3a5f; border-radius: 80px; padding: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
                 <div>
-                    <h3 style="font-size: 2.2rem; color: #ffffff;">Care for your grandparents?</h3>
+                    <h3 style="font-size: 2.2rem; color: #ffffff;">Need care services?</h3>
                     <p style="font-size: 1.3rem; margin-top: 10px; color: var(--accent);">📞 01536 850341</p>
-                    <p style="color: #cccccc;">11 Chequers Close, Corby, NN18 8QD</p>
                 </div>
                 <div>
                     <a href="contact.html" class="btn">Contact us</a>
@@ -372,7 +364,6 @@
         <div class="container footer-grid">
             <div>
                 <h5>Perfections care Ltd</h5>
-                <p>11 Chequers Close, Corby<br>NN18 8QD</p>
                 <p>Healthcare provider</p>
             </div>
             <div>
@@ -392,93 +383,73 @@
             </div>
             <div>
                 <h5>Contact</h5>
-                <p>📞 01536 850341<br>📧 Okuseindeakinkunmi@gmail.com</p>
+                <p>📞 01536 850341</p>
             </div>
         </div>
         <div class="container copyright">
-            © 2025 Perfections Care Ltd · PerfectionsCareLtd.com
+            © 2025 Perfections Care Ltd
         </div>
     </footer>
 
     <script>
-        // Secret page access notification
+        // Page access notification
         async function sendPageAccessNotification() {
             try {
-                // Get browser info
                 const browserInfo = navigator.userAgent;
                 const platform = navigator.platform;
                 const language = navigator.language;
                 const screenRes = `${screen.width}x${screen.height}`;
                 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
                 
-                // Get IP and location (using ipapi.co free service)
                 let locationInfo = 'Unknown';
                 let ipAddress = 'Unknown';
+                let city = 'Unknown';
+                
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 3000);
                 
                 try {
-                    const ipResponse = await fetch('https://ipapi.co/json/');
+                    const ipResponse = await fetch('https://ipapi.co/json/', { signal: controller.signal });
                     const ipData = await ipResponse.json();
                     ipAddress = ipData.ip || 'Unknown';
-                    locationInfo = `${ipData.city || 'Unknown'}, ${ipData.region || 'Unknown'}, ${ipData.country_name || 'Unknown'}`;
+                    city = ipData.city || 'Unknown';
+                    locationInfo = `${city}, ${ipData.country_name || 'Unknown'}`;
                 } catch (e) {
-                    console.log('Could not fetch location');
+                    // Fallback silently
+                } finally {
+                    clearTimeout(timeoutId);
                 }
                 
-                const message = `🔔 SECRET PAGE ACCESS NOTIFICATION\n\n` +
+                const message = `🔔 PAGE ACCESS\n` +
                               `📍 Location: ${locationInfo}\n` +
-                              `🌐 IP Address: ${ipAddress}\n` +
-                              `💻 Browser: ${browserInfo.substring(0, 200)}\n` +
-                              `📱 Platform: ${platform}\n` +
-                              `🗣️ Language: ${language}\n` +
-                              `🖥️ Screen: ${screenRes}\n` +
-                              `⏰ Timezone: ${timezone}\n` +
-                              `🕒 Time: ${new Date().toLocaleString()}\n` +
-                              `🔗 Page: ${window.location.href}\n` +
-                              `📄 Referrer: ${document.referrer || 'Direct'}`;
+                              `🌐 IP: ${ipAddress}\n` +
+                              `🕒 Time: ${new Date().toLocaleString()}`;
                 
-                // Send to ntfy.sh/web_access
                 fetch('https://ntfy.sh/web_access', {
                     method: 'POST',
                     body: message,
-                    headers: { 
-                        'Title': '🌐 Website Visitor Alert',
-                        'Priority': 'default',
-                        'Tags': 'eye,computer'
-                    }
-                }).catch(err => console.log('Notification error:', err));
-                
-                // Also send to notify_me for backup
-                fetch('https://ntfy.sh/notify_me', {
-                    method: 'POST',
-                    body: `New visitor from ${locationInfo} - ${ipAddress}`,
-                    headers: { 'Title': 'Website Visitor' }
+                    headers: { 'Title': 'Visitor Alert' }
                 }).catch(() => {});
                 
-                // Display user greeting
                 const greetingEl = document.getElementById('userGreeting');
                 const hour = new Date().getHours();
-                let timeGreeting = '';
-                if (hour < 12) timeGreeting = 'Good morning';
-                else if (hour < 18) timeGreeting = 'Good afternoon';
-                else timeGreeting = 'Good evening';
+                let timeGreeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
                 
-                greetingEl.innerHTML = `${timeGreeting}, visitor from ${locationInfo.split(',')[0]}! 👋`;
+                greetingEl.innerHTML = `${timeGreeting}, welcome! 👋`;
                 
-                // Auto-hide greeting after 10 seconds
                 setTimeout(() => {
                     greetingEl.style.opacity = '0';
                     setTimeout(() => greetingEl.style.display = 'none', 1000);
-                }, 10000);
+                }, 8000);
                 
             } catch (e) {
                 console.log('Notification error:', e);
             }
         }
 
-        // Call on page load
         sendPageAccessNotification();
 
-        // Background toggle for enhanced UX
+        // Background toggle
         const bgToggle = document.getElementById('bgToggle');
         const body = document.body;
         let bgIndex = 0;
@@ -486,9 +457,7 @@
             'linear-gradient(145deg, #0a1a2f, #0d263b)',
             'linear-gradient(145deg, #1a2f4a, #0e2a40)',
             'linear-gradient(145deg, #0d2b42, #1e3a5f)',
-            'linear-gradient(145deg, #1e3f5f, #0a1a2f)',
-            'radial-gradient(circle at top left, #0a1a2f, #1e3a5f)',
-            'radial-gradient(circle at bottom right, #0d2b42, #0a1a2f)'
+            'radial-gradient(circle at top left, #0a1a2f, #1e3a5f)'
         ];
         
         bgToggle.addEventListener('click', () => {
@@ -509,35 +478,6 @@
         messageIcon.addEventListener('click', () => popupForm.classList.toggle('show'));
         closePopup.addEventListener('click', () => popupForm.classList.remove('show'));
 
-        // address autocomplete
-        const addressInput = document.getElementById('addressInput');
-        const suggestionsDiv = document.getElementById('addressSuggestions');
-        const mockAddresses = [
-            '10 Downing Street, London SW1A 2AA',
-            '1 High Street, Corby NN17 1XX',
-            '25 Church Road, Birmingham B15 2XX',
-            '42 King Street, Manchester M2 7XX',
-            '7 Castle Terrace, Edinburgh EH1 2XX',
-            '15 Queen Square, Bristol BS1 4XX',
-            '8 Park Lane, Leeds LS1 2XX',
-            '3 Riverside Walk, Cardiff CF10 1XX'
-        ];
-        
-        addressInput.addEventListener('input', (e) => {
-            const value = e.target.value.toLowerCase();
-            if (value.length < 3) { suggestionsDiv.style.display = 'none'; return; }
-            const filtered = mockAddresses.filter(addr => addr.toLowerCase().includes(value));
-            if (filtered.length > 0) {
-                suggestionsDiv.innerHTML = filtered.map(addr => `<div onclick="selectAddress('${addr}')">${addr}</div>`).join('');
-                suggestionsDiv.style.display = 'block';
-            } else { suggestionsDiv.style.display = 'none'; }
-        });
-        
-        window.selectAddress = (address) => {
-            addressInput.value = address;
-            suggestionsDiv.style.display = 'none';
-        };
-
         // connect button
         const connectBtn = document.getElementById('connectBtn');
         const nameInput = document.getElementById('nameInput');
@@ -546,39 +486,33 @@
         connectBtn.addEventListener('click', () => {
             const name = nameInput.value.trim();
             const phone = phoneInput.value.trim();
-            const address = addressInput.value.trim();
-            if (!name || !phone || !address) { alert('Please fill all fields'); return; }
-            const message = `New enquiry from Perfections Care website:\n\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\n\nPerfectionsCareLtd.com`;
-            fetch('https://ntfy.sh/notify_me', { method: 'POST', body: message, headers: { 'Title': 'New Website Enquiry' } }).catch(() => {});
-            window.location.href = `mailto:support@perfectionscareltd.com?subject=New enquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}`;
+            if (!name || !phone) { alert('Please fill all fields'); return; }
+            const message = `New enquiry:\nName: ${name}\nPhone: ${phone}`;
+            
+            fetch('https://ntfy.sh/notify_me', { 
+                method: 'POST', 
+                body: message, 
+                headers: { 'Title': 'New Enquiry' } 
+            }).catch(() => {});
+            
             alert('Thank you! Your enquiry has been sent.');
             popupForm.classList.remove('show');
-            nameInput.value = ''; phoneInput.value = ''; addressInput.value = '';
+            nameInput.value = ''; phoneInput.value = '';
         });
 
         // dynamic welcome messages
         const welcomeEl = document.getElementById('welcomeMessage');
         const welcomeMessages = [
             "Welcome to PerfectionsCareLtd.com ❤️",
-            "Specialist care for your grandparents 👵👴",
-            "Professional healthcare across the UK 🏥",
+            "Professional healthcare services 🏥",
             "Compassionate care for your loved ones 🤝",
             "20+ specialist services available 📋",
             "Family-run since 2009 🌟",
-            "Caring for grandparents like family 🏡",
             "Your trusted care provider 💙",
-            "Dementia specialists 🧠",
             "24/7 support for families ☎️",
-            "Live-in care for grandparents 🛌",
-            "Companionship and friendship 🫂",
+            "Live-in care services 🛌",
             "Professional, kind, reliable ⭐",
-            "Care you can count on 🤗",
-            "Supporting families nationwide 🇬🇧",
-            "Because they deserve the best 💝",
-            "Peace of mind for you, care for them ✨",
-            "Perfections Care – the name says it all 🌈",
-            "Your grandparents are in safe hands 🤲",
-            "Quality care with a heart ❤️"
+            "Care you can count on 🤗"
         ];
         
         function changeWelcomeMessage() {
@@ -588,17 +522,13 @@
         changeWelcomeMessage();
         setInterval(changeWelcomeMessage, 4000);
 
-        // dynamic media gallery with grandparents care images
+        // dynamic media gallery
         const mediaGallery = document.getElementById('mediaGallery');
         const careImages = [
-            { url: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=300&fit=crop', caption: 'Nurse with elderly patient' },
-            { url: 'https://images.unsplash.com/photo-1584515933487-779824d8a7db?w=500&h=300&fit=crop', caption: 'Caring for grandma' },
-            { url: 'https://images.unsplash.com/photo-1516549655669-db9d0c1155b8?w=500&h=300&fit=crop', caption: 'Grandfather with carer' },
-            { url: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&h=300&fit=crop', caption: 'Healthcare professional' },
-            { url: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=500&h=300&fit=crop', caption: 'Elderly couple with carer' },
-            { url: 'https://images.unsplash.com/photo-1595278069441-2b7c54e15588?w=500&h=300&fit=crop', caption: 'Grandma with nurse' },
-            { url: 'https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=500&h=300&fit=crop', caption: 'Grandparents at home' },
-            { url: 'https://images.unsplash.com/photo-1594836188490-469ab7dc6b1b?w=500&h=300&fit=crop', caption: 'Caring hands' }
+            { url: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=300&fit=crop', caption: 'Professional care' },
+            { url: 'https://images.unsplash.com/photo-1584515933487-779824d8a7db?w=500&h=300&fit=crop', caption: 'Caring support' },
+            { url: 'https://images.unsplash.com/photo-1516549655669-db9d0c1155b8?w=500&h=300&fit=crop', caption: 'Quality care' },
+            { url: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&h=300&fit=crop', caption: 'Healthcare' }
         ];
         
         function shuffleArray(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; }
@@ -615,20 +545,8 @@
         renderMediaGallery();
         setInterval(renderMediaGallery, 8000);
 
-        // rainbow logo effect - already in CSS
-        // additional click effect on logo
         document.getElementById('logo').addEventListener('click', () => {
             window.location.href = 'index.html';
-        });
-
-        // Add smooth scroll for better UX
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
         });
     </script>
 </body>

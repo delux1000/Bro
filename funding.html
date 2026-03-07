@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funding Advice · Perfections Care Ltd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a1a2f; color: #ffffff; line-height: 1.5; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        :root { --primary: #2a6f97; --primary-light: #1e3a5f; --accent: #4a9eff; --grey-light: #1e2f45; --border-light: #2a3f55; --star: #ffb74d; }
+        
+        .text-logo { display: flex; flex-direction: column; }
+        .text-logo h1 { font-size: 2rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; line-height: 1.2; }
+        .text-logo .tagline { font-size: 1rem; font-weight: 500; color: var(--accent); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        .text-logo .tagline span { background: #1e3a5f; padding: 4px 12px; border-radius: 40px; font-size: 0.85rem; color: #ffffff; }
+        
+        .navbar { background: #0e2a40; box-shadow: 0 2px 16px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 10; }
+        .nav-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 24px; }
+        .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; padding: 10px 16px; font-weight: 500; color: #ffffff; border-radius: 40px; transition: 0.15s; font-size: 0.95rem; }
+        .nav-links a:hover, .nav-links a.active { background: #1e3f5f; color: var(--accent); }
+        .contact-phone { background: #1e3f5f; padding: 8px 18px; border-radius: 60px; font-weight: 600; color: #ffffff; font-size: 0.95rem; border: 1px solid #2a5f8a; white-space: nowrap; }
+        
+        .ad-banner { background: #1e3a5f; border: 1px solid #2a5f8a; border-radius: 60px; padding: 14px 28px; margin: 30px 0 10px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+        .ad-banner span { font-weight: 700; color: #ffb74d; }
+        .ad-banner small { font-weight: 500; color: #aaccff; }
+        .pill-link { background: #0e2a40; padding: 8px 24px; border-radius: 40px; text-decoration: none; color: var(--accent); font-weight: 600; border: 1px solid var(--accent); }
+        
+        .btn { display: inline-block; background: var(--accent); color: #0a1a2f; font-weight: 600; padding: 14px 34px; border-radius: 50px; text-decoration: none; box-shadow: 0 8px 18px rgba(0,0,0,0.3); border: none; cursor: pointer; }
+        .btn-outline { background: transparent; border: 2px solid var(--accent); color: #ffffff; box-shadow: none; }
+        
+        .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
+        .section-sub { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        .uk-stamp { display: inline-flex; align-items: center; gap: 8px; background: #1e3a5f; border: 2px solid var(--accent); border-radius: 40px; padding: 8px 24px; font-weight: 700; color: #ffffff; margin: 5px; }
+        
+        .funding-hero { background: linear-gradient(145deg, #0d2b42 0%, #0a1a2f 70%); padding: 50px 0 30px; border-radius: 0 0 60px 60px; }
+        .funding-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
+        .funding-card { background: #1e3a5f; border-radius: 40px; padding: 35px; border: 1px solid var(--border-light); transition: 0.2s; }
+        .funding-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .funding-icon { background: #0e2a40; width: 70px; height: 70px; border-radius: 35px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 20px; }
+        .funding-card h3 { font-size: 1.6rem; color: #ffffff; margin-bottom: 15px; }
+        .funding-tag { background: #0e2a40; color: var(--accent); padding: 5px 15px; border-radius: 30px; display: inline-block; font-weight: 600; margin: 10px 0; border: 1px solid var(--accent); }
+        .checklist { list-style: none; margin: 20px 0; }
+        .checklist li { margin: 10px 0; display: flex; align-items: center; gap: 10px; color: #cccccc; }
+        .checklist li::before { content: "✓"; color: var(--accent); font-weight: bold; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin: 40px 0; }
+        .step-item { background: #1e3a5f; border-radius: 40px; padding: 30px; text-align: center; }
+        .step-number { background: var(--accent); color: #0a1a2f; width: 50px; height: 50px; border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 700; margin: 0 auto 20px; }
+        .consultation-box { background: #1e3a5f; border: 2px solid var(--accent); border-radius: 60px; padding: 50px; margin: 50px 0; text-align: center; }
+        .faq-item { background: #1e3a5f; border-radius: 30px; padding: 25px; margin-bottom: 15px; border: 1px solid var(--border-light); }
+        
+        .footer { background: #051220; color: #cccccc; padding: 48px 0 24px; border-top: 6px solid var(--accent); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 40px; }
+        .footer h5 { color: #ffffff; font-weight: 600; margin-bottom: 22px; font-size: 1.2rem; }
+        .footer a { color: #aaccff; text-decoration: none; display: block; margin: 10px 0; }
+        .footer a:hover { color: #ffffff; }
+        .copyright { text-align: center; padding-top: 50px; color: #888888; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="text-logo">
+                <h1>Perfections care Ltd</h1>
+                <div class="tagline">
+                    <span>UK wide</span> 
+                    <span>Healthcare</span>
+                    <span>Established</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="careers.html">Careers</a>
+                <a href="funding.html" class="active">Funding</a>
+            </div>
+            <div class="contact-phone">📞 01536 850341</div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="ad-banner">
+            <span>Funding advice and guidance</span>
+            <small>Free, impartial information</small>
+            <a href="#consultation" class="pill-link">Book consultation</a>
+        </div>
+    </div>
+
+    <section class="funding-hero">
+        <div class="container">
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+                <span class="uk-stamp">NHS funding</span>
+                <span class="uk-stamp">Benefits advice</span>
+                <span class="uk-stamp">Free consultation</span>
+            </div>
+            <h2 class="section-title">Funding and paying for care</h2>
+            <p style="font-size: 1.3rem; color: #cccccc;">Guidance on the different ways to fund care and support.</p>
+        </div>
+    </section>
+
+    <section style="padding: 50px 0;">
+        <div class="container">
+            <h3 class="section-title">Your funding options</h3>
+            <div class="funding-grid">
+                <div class="funding-card">
+                    <div class="funding-icon">🏥</div>
+                    <h3>NHS Continuing Healthcare</h3>
+                    <span class="funding-tag">Fully funded care</span>
+                    <p style="color: #cccccc;">For those with significant ongoing health needs, the NHS may cover all care costs.</p>
+                    <ul class="checklist">
+                        <li>Complex medical needs</li>
+                        <li>Intense nursing requirements</li>
+                        <li>Unstable health conditions</li>
+                    </ul>
+                </div>
+                <div class="funding-card">
+                    <div class="funding-icon">🏛️</div>
+                    <h3>Local authority funding</h3>
+                    <span class="funding-tag">Means-tested</span>
+                    <p style="color: #cccccc;">Council support for those with savings below a certain threshold.</p>
+                    <ul class="checklist">
+                        <li>Care needs assessment</li>
+                        <li>Financial assessment</li>
+                        <li>Direct payments available</li>
+                    </ul>
+                </div>
+                <div class="funding-card">
+                    <div class="funding-icon">💷</div>
+                    <h3>Welfare benefits</h3>
+                    <span class="funding-tag">Attendance Allowance · PIP</span>
+                    <p style="color: #cccccc;">Financial support regardless of savings.</p>
+                    <ul class="checklist">
+                        <li>Attendance Allowance (over 65)</li>
+                        <li>Personal Independence Payment (under 65)</li>
+                        <li>Carer's Allowance</li>
+                    </ul>
+                </div>
+                <div class="funding-card">
+                    <div class="funding-icon">💰</div>
+                    <h3>Self-funding</h3>
+                    <span class="funding-tag">Private pay</span>
+                    <p style="color: #cccccc;">Flexible packages for those arranging their own care.</p>
+                    <ul class="checklist">
+                        <li>Hourly care</li>
+                        <li>Live-in care packages</li>
+                        <li>Respite care</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #0d263b; padding: 60px 0;">
+        <div class="container">
+            <h3 class="section-title">How to apply for funding</h3>
+            <div class="steps-grid">
+                <div class="step-item"><div class="step-number">1</div><h4>Initial chat</h4><p style="color: #cccccc;">Free discussion about your situation</p></div>
+                <div class="step-item"><div class="step-number">2</div><h4>Check eligibility</h4><p style="color: #cccccc;">Understand which options apply</p></div>
+                <div class="step-item"><div class="step-number">3</div><h4>Gather evidence</h4><p style="color: #cccccc;">Medical and financial information</p></div>
+                <div class="step-item"><div class="step-number">4</div><h4>Submit application</h4><p style="color: #cccccc;">We guide you through the process</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="consultation">
+        <div class="container">
+            <div class="consultation-box">
+                <h3 style="font-size: 2.2rem; color: #ffffff;">Free funding consultation</h3>
+                <p style="font-size: 1.3rem; margin: 20px 0; color: #cccccc;">Speak to our funding advisor – no obligation.</p>
+                <div style="margin: 30px 0;">
+                    <span style="background: var(--accent); color: #0a1a2f; padding: 12px 35px; border-radius: 60px; font-weight: 700; font-size: 1.5rem;">01536 850341</span>
+                </div>
+                <a href="contact.html" class="btn">Email us</a>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <h3 class="section-title">Frequently asked questions</h3>
+            <div class="faq-item">
+                <h4 style="color: var(--accent);">What is NHS Continuing Healthcare?</h4>
+                <p style="color: #cccccc;">A package of care funded entirely by the NHS for those with a primary health need.</p>
+            </div>
+            <div class="faq-item">
+                <h4 style="color: var(--accent);">Can I get help if I own my home?</h4>
+                <p style="color: #cccccc;">For care at home, your home is usually disregarded. For care homes, it may be included in the means test.</p>
+            </div>
+            <div class="faq-item">
+                <h4 style="color: var(--accent);">How long do assessments take?</h4>
+                <p style="color: #cccccc;">Typically 4-6 weeks, but can be faster in urgent cases.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <h5>Perfections care Ltd</h5>
+                <p>11 Chequers Close, Corby<br>NN18 8QD</p>
+                <p>Healthcare provider</p>
+            </div>
+            <div>
+                <h5>Quick links</h5>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="careers.html">Careers</a>
+                <a href="funding.html">Funding</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="blog.html">Blog</a>
+            </div>
+            <div>
+                <h5>Legal</h5>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Complaints</a>
+            </div>
+            <div>
+                <h5>Contact</h5>
+                <p>📞 01536 850341<br>📧 Okuseindeakinkunmi@gmail.com</p>
+            </div>
+        </div>
+        <div class="container copyright">
+            © 2025 Perfections Care Ltd
+        </div>
+    </footer>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us · Perfections Care Ltd</title>
+    <title>Contact · Perfections Care Ltd</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -11,30 +11,37 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', system-ui, sans-serif; background: #0a1a2f; color: #ffffff; line-height: 1.5; }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        :root { --primary: #2a6f97; --primary-light: #1e3a5f; --accent: #4a9eff; --grey-light: #1e2f45; --border-light: #2a3f55; --star: #ffb74d; }
+        :root { --primary: #2a6f97; --primary-light: #1e3a5f; --accent: #4a9eff; --border-light: #2a3f55; }
         
-        .text-logo { display: flex; flex-direction: column; }
-        .text-logo h1 { font-size: 2rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; line-height: 1.2; }
-        .text-logo .tagline { font-size: 1rem; font-weight: 500; color: var(--accent); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-        .text-logo .tagline span { background: #1e3a5f; padding: 4px 12px; border-radius: 40px; font-size: 0.85rem; color: #ffffff; }
+        @keyframes rainbow { 
+            0% { color: #ff6b6b; } 14% { color: #ffb74d; } 28% { color: #ffee58; } 42% { color: #66bb6a; } 57% { color: #4a9eff; } 71% { color: #7e57c2; } 85% { color: #ec407a; } 100% { color: #ff6b6b; }
+        }
         
-        .navbar { background: #0e2a40; box-shadow: 0 2px 16px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 10; }
+        .text-logo { display: flex; flex-direction: column; cursor: pointer; }
+        .text-logo h1 { font-size: 2rem; font-weight: 800; animation: rainbow 8s linear infinite; }
+        .text-logo .tagline span { background: #1e3a5f; padding: 4px 12px; border-radius: 40px; color: #ffffff; }
+        
+        .navbar { background: #0e2a40; position: sticky; top: 0; }
         .nav-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 24px; }
+        
+        .menu-button { background: #1e3f5f; border: 1px solid var(--accent); border-radius: 50px; padding: 12px 24px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        
         .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
-        .nav-links a { text-decoration: none; padding: 10px 16px; font-weight: 500; color: #ffffff; border-radius: 40px; transition: 0.15s; font-size: 0.95rem; }
+        .nav-links a { text-decoration: none; padding: 10px 16px; color: #ffffff; border-radius: 40px; }
         .nav-links a:hover, .nav-links a.active { background: #1e3f5f; color: var(--accent); }
-        .contact-phone { background: #1e3f5f; padding: 8px 18px; border-radius: 60px; font-weight: 600; color: #ffffff; font-size: 0.95rem; border: 1px solid #2a5f8a; white-space: nowrap; }
         
-        .ad-banner { background: #1e3a5f; border: 1px solid #2a5f8a; border-radius: 60px; padding: 14px 28px; margin: 30px 0 10px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-        .ad-banner span { font-weight: 700; color: #ffb74d; }
-        .ad-banner small { font-weight: 500; color: #aaccff; }
-        .pill-link { background: #0e2a40; padding: 8px 24px; border-radius: 40px; text-decoration: none; color: var(--accent); font-weight: 600; border: 1px solid var(--accent); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; width: 100%; flex-direction: column; }
+            .nav-links.show { display: flex; }
+        }
         
-        .btn { display: inline-block; background: var(--accent); color: #0a1a2f; font-weight: 600; padding: 14px 34px; border-radius: 50px; text-decoration: none; box-shadow: 0 8px 18px rgba(0,0,0,0.3); border: none; cursor: pointer; }
-        .btn-outline { background: transparent; border: 2px solid var(--accent); color: #ffffff; box-shadow: none; }
+        .contact-phone { background: #1e3f5f; padding: 8px 18px; border-radius: 60px; color: #ffffff; border: 1px solid #2a5f8a; }
+        
+        .btn { background: var(--accent); color: #0a1a2f; padding: 14px 34px; border-radius: 50px; text-decoration: none; display: inline-block; border: none; cursor: pointer; }
+        .btn-outline { background: transparent; border: 2px solid var(--accent); color: #ffffff; }
         
         .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
-        .uk-stamp { display: inline-flex; align-items: center; gap: 8px; background: #1e3a5f; border: 2px solid var(--accent); border-radius: 40px; padding: 8px 24px; font-weight: 700; color: #ffffff; margin: 5px; }
+        .uk-stamp { display: inline-flex; background: #1e3a5f; border: 2px solid var(--accent); border-radius: 40px; padding: 8px 24px; color: #ffffff; margin: 5px; }
         
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 40px 0; }
         .contact-info-card { background: #1e3a5f; border-radius: 50px; padding: 40px; }
@@ -42,30 +49,27 @@
         .info-icon { background: #0e2a40; width: 60px; height: 60px; border-radius: 30px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
         .form-card { background: #1e3a5f; border-radius: 50px; padding: 40px; border: 1px solid var(--border-light); }
         .form-group { margin-bottom: 20px; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 16px 20px; border-radius: 60px; border: 1px solid #2a5f8a; background: #0e2a40; color: #ffffff; font-family: 'Inter', sans-serif; }
+        .form-group input, .form-group textarea { width: 100%; padding: 16px 20px; border-radius: 60px; border: 1px solid #2a5f8a; background: #0e2a40; color: #ffffff; }
         .form-group textarea { border-radius: 30px; min-height: 120px; }
-        .map-placeholder { background: #1e3a5f; border-radius: 40px; height: 250px; display: flex; align-items: center; justify-content: center; margin: 40px 0; border: 1px solid var(--border-light); }
         
         .footer { background: #051220; color: #cccccc; padding: 48px 0 24px; border-top: 6px solid var(--accent); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 40px; }
-        .footer h5 { color: #ffffff; font-weight: 600; margin-bottom: 22px; font-size: 1.2rem; }
-        .footer a { color: #aaccff; text-decoration: none; display: block; margin: 10px 0; }
-        .footer a:hover { color: #ffffff; }
+        .footer h5 { color: #ffffff; font-weight: 600; margin-bottom: 22px; }
+        .footer a { color: #aaccff; text-decoration: none; display: block; }
         .copyright { text-align: center; padding-top: 50px; color: #888888; }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="text-logo">
-                <h1>Perfections care Ltd</h1>
-                <div class="tagline">
-                    <span>UK wide</span> 
-                    <span>Healthcare</span>
-                    <span>Established</span>
-                </div>
+            <div class="text-logo" id="logo">
+                <h1>PerfectionsCareLtd.com</h1>
+                <div class="tagline"><span>UK wide</span> <span>Healthcare</span> <span>Est. 2009</span></div>
             </div>
-            <div class="nav-links">
+            
+            <div class="menu-button" id="menuButton"><span>☰</span> Menu</div>
+            
+            <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
@@ -75,56 +79,35 @@
                 <a href="careers.html">Careers</a>
                 <a href="funding.html">Funding</a>
             </div>
+            
             <div class="contact-phone">📞 01536 850341</div>
         </div>
     </nav>
 
     <div class="container">
-        <div class="ad-banner">
-            <span>Get in touch with our team</span>
-            <small>We're here to help</small>
-            <a href="tel:01536850341" class="pill-link">Call us</a>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin: 30px 0;">
+            <span class="uk-stamp">24/7 support</span>
+            <span class="uk-stamp">Quick response</span>
+            <span class="uk-stamp">Friendly team</span>
         </div>
+        <h2 class="section-title">Contact us</h2>
     </div>
-
-    <section style="padding: 40px 0;">
-        <div class="container">
-            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
-                <span class="uk-stamp">24/7 support</span>
-                <span class="uk-stamp">Quick response</span>
-                <span class="uk-stamp">Friendly team</span>
-            </div>
-            <h2 class="section-title">Contact Perfections Care Ltd</h2>
-            <p style="font-size: 1.3rem; color: #cccccc;">We're here to answer your questions about our services.</p>
-        </div>
-    </section>
 
     <section style="padding: 20px 0 40px;">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info-card">
-                    <h3 style="font-size: 2rem; margin-bottom: 30px; color: #ffffff;">Our details</h3>
-                    
-                    <div class="info-item"><div class="info-icon">🏠</div><div><h4>Address</h4><p>11 Chequers Close<br>Corby, NN18 8QD<br>Northamptonshire</p></div></div>
-                    
-                    <div class="info-item"><div class="info-icon">📞</div><div><h4>Phone</h4><p><strong>01536 850341</strong><br>07521 627390<br>07399 283446</p></div></div>
-                    
-                    <div class="info-item"><div class="info-icon">📧</div><div><h4>Email</h4><p>Okuseindeakinkunmi@gmail.com</p></div></div>
-                    
-                    <div class="info-item"><div class="info-icon">🕒</div><div><h4>Office hours</h4><p>Mon–Fri: 8am–8pm<br>Sat: 9am–5pm<br>24/7 emergency line</p></div></div>
+                    <h3 style="font-size: 2rem; margin-bottom: 30px;">Our details</h3>
+                    <div class="info-item"><div class="info-icon">📞</div><div><h4>Phone</h4><p>01536 850341</p></div></div>
+                    <div class="info-item"><div class="info-icon">🕒</div><div><h4>Hours</h4><p>Mon–Fri: 8am–8pm<br>24/7 emergency line</p></div></div>
                 </div>
                 
                 <div class="form-card">
-                    <h3 style="font-size: 2rem; margin-bottom: 20px; color: #ffffff;">Send a message</h3>
-                    <p style="margin-bottom: 30px; color: #cccccc;">Ask about services, pricing or anything else.</p>
-                    
+                    <h3 style="font-size: 2rem; margin-bottom: 20px;">Send a message</h3>
                     <form>
-                        <div class="form-group"><input type="text" placeholder="Full name *"></div>
+                        <div class="form-group"><input type="text" placeholder="Your name *"></div>
                         <div class="form-group"><input type="email" placeholder="Email address *"></div>
                         <div class="form-group"><input type="tel" placeholder="Phone number"></div>
-                        <div class="form-group">
-                            <select><option>I'm interested in...</option><option>Live-in care</option><option>Domiciliary care</option><option>Complex care</option><option>Funding advice</option><option>Careers</option></select>
-                        </div>
                         <div class="form-group"><textarea placeholder="Your message *"></textarea></div>
                         <button type="submit" class="btn" style="width: 100%;">Send message</button>
                     </form>
@@ -133,56 +116,20 @@
         </div>
     </section>
 
-    <div class="container">
-        <div class="map-placeholder">
-            <div style="text-align: center;">
-                <span style="font-size: 3rem;">📍</span>
-                <h3>11 Chequers Close, Corby, NN18 8QD</h3>
-                <p style="color: #cccccc;">View on Google Maps</p>
-            </div>
-        </div>
-    </div>
-
-    <section style="padding: 40px 0;">
-        <div class="container">
-            <div style="background: #1e3a5f; border-radius: 80px; padding: 40px; text-align: center;">
-                <h3 style="font-size: 2.2rem; color: #ffffff;">Speak to our friendly team</h3>
-                <p style="font-size: 1.5rem; margin: 20px 0; color: var(--accent);">01536 850341</p>
-                <a href="tel:01536850341" class="btn">Call now</a>
-            </div>
-        </div>
-    </section>
-
     <footer class="footer">
         <div class="container footer-grid">
-            <div>
-                <h5>Perfections care Ltd</h5>
-                <p>11 Chequers Close, Corby<br>NN18 8QD</p>
-                <p>Healthcare provider</p>
-            </div>
-            <div>
-                <h5>Quick links</h5>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="careers.html">Careers</a>
-                <a href="funding.html">Funding</a>
-                <a href="testimonials.html">Testimonials</a>
-                <a href="blog.html">Blog</a>
-            </div>
-            <div>
-                <h5>Legal</h5>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Complaints</a>
-            </div>
-            <div>
-                <h5>Contact</h5>
-                <p>📞 01536 850341<br>📧 Okuseindeakinkunmi@gmail.com</p>
-            </div>
+            <div><h5>Perfections care Ltd</h5><p>Healthcare provider</p></div>
+            <div><h5>Quick links</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html">Contact</a></div>
+            <div><h5>Contact</h5><p>📞 01536 850341</p></div>
         </div>
-        <div class="container copyright">
-            © 2025 Perfections Care Ltd
-        </div>
+        <div class="container copyright">© 2025 Perfections Care Ltd</div>
     </footer>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const navLinks = document.getElementById('navLinks');
+        menuButton.addEventListener('click', () => navLinks.classList.toggle('show'));
+        document.getElementById('logo').addEventListener('click', () => window.location.href = 'index.html');
+    </script>
 </body>
 </html>

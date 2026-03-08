@@ -11,62 +11,61 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', system-ui, sans-serif; background: #0a1a2f; color: #ffffff; line-height: 1.5; }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        :root { --primary: #2a6f97; --primary-light: #1e3a5f; --accent: #4a9eff; --grey-light: #1e2f45; --border-light: #2a3f55; --star: #ffb74d; }
+        :root { --primary: #2a6f97; --primary-light: #1e3a5f; --accent: #4a9eff; --border-light: #2a3f55; --star: #ffb74d; }
         
-        .text-logo { display: flex; flex-direction: column; }
-        .text-logo h1 { font-size: 2rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; line-height: 1.2; }
-        .text-logo .tagline { font-size: 1rem; font-weight: 500; color: var(--accent); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-        .text-logo .tagline span { background: #1e3a5f; padding: 4px 12px; border-radius: 40px; font-size: 0.85rem; color: #ffffff; }
+        @keyframes rainbow { 
+            0% { color: #ff6b6b; } 14% { color: #ffb74d; } 28% { color: #ffee58; } 42% { color: #66bb6a; } 57% { color: #4a9eff; } 71% { color: #7e57c2; } 85% { color: #ec407a; } 100% { color: #ff6b6b; }
+        }
         
-        .navbar { background: #0e2a40; box-shadow: 0 2px 16px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 10; }
+        .text-logo { display: flex; flex-direction: column; cursor: pointer; }
+        .text-logo h1 { font-size: 2rem; font-weight: 800; animation: rainbow 8s linear infinite; }
+        .text-logo .tagline span { background: #1e3a5f; padding: 4px 12px; border-radius: 40px; color: #ffffff; }
+        
+        .navbar { background: #0e2a40; position: sticky; top: 0; }
         .nav-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 24px; }
+        
+        .menu-button { background: #1e3f5f; border: 1px solid var(--accent); border-radius: 50px; padding: 12px 24px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        
         .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
-        .nav-links a { text-decoration: none; padding: 10px 16px; font-weight: 500; color: #ffffff; border-radius: 40px; transition: 0.15s; font-size: 0.95rem; }
+        .nav-links a { text-decoration: none; padding: 10px 16px; color: #ffffff; border-radius: 40px; }
         .nav-links a:hover, .nav-links a.active { background: #1e3f5f; color: var(--accent); }
-        .contact-phone { background: #1e3f5f; padding: 8px 18px; border-radius: 60px; font-weight: 600; color: #ffffff; font-size: 0.95rem; border: 1px solid #2a5f8a; white-space: nowrap; }
         
-        .ad-banner { background: #1e3a5f; border: 1px solid #2a5f8a; border-radius: 60px; padding: 14px 28px; margin: 30px 0 10px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-        .ad-banner span { font-weight: 700; color: #ffb74d; }
-        .ad-banner small { font-weight: 500; color: #aaccff; }
-        .pill-link { background: #0e2a40; padding: 8px 24px; border-radius: 40px; text-decoration: none; color: var(--accent); font-weight: 600; border: 1px solid var(--accent); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; width: 100%; flex-direction: column; }
+            .nav-links.show { display: flex; }
+        }
         
-        .btn { display: inline-block; background: var(--accent); color: #0a1a2f; font-weight: 600; padding: 14px 34px; border-radius: 50px; text-decoration: none; box-shadow: 0 8px 18px rgba(0,0,0,0.3); border: none; cursor: pointer; }
-        .btn-outline { background: transparent; border: 2px solid var(--accent); color: #ffffff; box-shadow: none; }
+        .contact-phone { background: #1e3f5f; padding: 8px 18px; border-radius: 60px; color: #ffffff; border: 1px solid #2a5f8a; }
+        
+        .btn { background: var(--accent); color: #0a1a2f; padding: 14px 34px; border-radius: 50px; text-decoration: none; display: inline-block; }
         
         .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
-        .section-sub { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        
-        .uk-stamp { display: inline-flex; align-items: center; gap: 8px; background: #1e3a5f; border: 2px solid var(--accent); border-radius: 40px; padding: 8px 24px; font-weight: 700; color: #ffffff; margin: 5px; }
+        .uk-stamp { display: inline-flex; background: #1e3a5f; border: 2px solid var(--accent); border-radius: 40px; padding: 8px 24px; color: #ffffff; margin: 5px; }
         
         .testimonials-hero { background: linear-gradient(145deg, #0d2b42 0%, #0a1a2f 70%); padding: 50px 0 30px; border-radius: 0 0 60px 60px; }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin: 50px 0; }
-        .testimonial-card { background: #1e3a5f; border-radius: 40px; padding: 35px; border: 1px solid var(--border-light); transition: 0.2s; }
-        .testimonial-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
+        .testimonial-card { background: #1e3a5f; border-radius: 40px; padding: 35px; border: 1px solid var(--border-light); }
         .stars { color: var(--star); font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 20px; }
         .testimonial-card p { font-size: 1.1rem; font-style: italic; margin-bottom: 25px; color: #ffffff; }
-        .author { font-weight: 700; color: #ffffff; }
-        .location { color: #aaccff; margin-top: 5px; font-size: 0.9rem; }
         
         .footer { background: #051220; color: #cccccc; padding: 48px 0 24px; border-top: 6px solid var(--accent); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 40px; }
-        .footer h5 { color: #ffffff; font-weight: 600; margin-bottom: 22px; font-size: 1.2rem; }
-        .footer a { color: #aaccff; text-decoration: none; display: block; margin: 10px 0; }
-        .footer a:hover { color: #ffffff; }
+        .footer h5 { color: #ffffff; font-weight: 600; margin-bottom: 22px; }
+        .footer a { color: #aaccff; text-decoration: none; display: block; }
         .copyright { text-align: center; padding-top: 50px; color: #888888; }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="text-logo">
-                <h1>Perfections care Ltd</h1>
-                <div class="tagline">
-                    <span>UK wide</span> 
-                    <span>Healthcare</span>
-                    <span>Established</span>
-                </div>
+            <div class="text-logo" id="logo">
+                <h1>PerfectionsCareLtd.com</h1>
+                <div class="tagline"><span>UK wide</span> <span>Healthcare</span> <span>Est. 2009</span></div>
             </div>
-            <div class="nav-links">
+            
+            <div class="menu-button" id="menuButton"><span>☰</span> Menu</div>
+            
+            <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
@@ -76,150 +75,50 @@
                 <a href="careers.html">Careers</a>
                 <a href="funding.html">Funding</a>
             </div>
+            
             <div class="contact-phone">📞 01536 850341</div>
         </div>
     </nav>
 
     <div class="container">
-        <div class="ad-banner">
-            <span>Client experiences and feedback</span>
-            <small>Real stories from real people</small>
-            <a href="contact.html" class="pill-link">Share your story</a>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin: 30px 0;">
+            <span class="uk-stamp">Real stories</span>
+            <span class="uk-stamp">Genuine feedback</span>
+            <span class="uk-stamp">Trusted care</span>
         </div>
+        <h2 class="section-title">Client testimonials</h2>
     </div>
 
-    <section class="testimonials-hero">
-        <div class="container">
-            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
-                <span class="uk-stamp">Real stories</span>
-                <span class="uk-stamp">Genuine feedback</span>
-                <span class="uk-stamp">Trusted care</span>
-            </div>
-            <h2 class="section-title">What people say about Perfections Care</h2>
-            <p style="font-size: 1.3rem; color: #cccccc;">Read testimonials from clients and families across the UK.</p>
-        </div>
-    </section>
-
-    <section style="padding: 40px 0;">
+    <section style="padding: 20px 0 40px;">
         <div class="container">
             <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"The team provides excellent care and support. Highly professional and caring. They go above and beyond every single time."</p>
-                    <div class="author">— Sarah, Manchester</div>
-                    <div class="location">Family member</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Wonderful service from start to finish. The carers are kind, attentive and always on time. Couldn't ask for better."</p>
-                    <div class="author">— David, Birmingham</div>
-                    <div class="location">Client</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Reliable, professional and compassionate. The team really listens to what you need and adapts accordingly."</p>
-                    <div class="author">— Margaret, London</div>
-                    <div class="location">Family member</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"They treat my mother with such dignity and respect. We're so grateful to have found them."</p>
-                    <div class="author">— Joan, Leeds</div>
-                    <div class="location">Daughter</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"After my surgery, they arranged care quickly. Absolutely wonderful people who made my recovery so much easier."</p>
-                    <div class="author">— Robert, Bristol</div>
-                    <div class="location">Client</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"The management is so responsive. Nothing is too much trouble. They really care about their clients."</p>
-                    <div class="author">— Patricia, Sheffield</div>
-                    <div class="location">Family member</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Dad has dementia and they are so patient with him. He's much calmer now and actually looks forward to their visits."</p>
-                    <div class="author">— Michael, Newcastle</div>
-                    <div class="location">Son</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"I've used several agencies but this one stands out. Highly recommended for their professionalism and kindness."</p>
-                    <div class="author">— Jennifer, Cardiff</div>
-                    <div class="location">Client</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"The live-in carer they provided became part of our family. Wonderful person and wonderful company."</p>
-                    <div class="author">— Susan, Edinburgh</div>
-                    <div class="location">Daughter</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Professional, reliable and compassionate. The team communicated well with the whole family."</p>
-                    <div class="author">— Thomas, Liverpool</div>
-                    <div class="location">Son</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"They helped my brother with complex needs. The carers are well-trained and confident."</p>
-                    <div class="author">— Paul, Southampton</div>
-                    <div class="location">Brother</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"The companionship visits give mum someone to look forward to seeing. It's made a huge difference."</p>
-                    <div class="author">— Gemma, Portsmouth</div>
-                    <div class="location">Daughter</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section style="padding: 40px 0;">
-        <div class="container">
-            <div style="background: #1e3a5f; border-radius: 80px; padding: 50px; text-align: center;">
-                <h3 style="font-size: 2.2rem; color: #ffffff;">Share your experience</h3>
-                <p style="font-size: 1.3rem; margin: 20px 0; color: #cccccc;">If you or your family have experienced our care, we'd love to hear from you.</p>
-                <a href="contact.html" class="btn">Get in touch</a>
-                <a href="mailto:Okuseindeakinkunmi@gmail.com" class="btn btn-outline" style="margin-left: 15px;">Email us</a>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"The team provides excellent care and support. Highly professional and caring."</p></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Wonderful service from start to finish. The carers are kind and attentive."</p></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Reliable, professional and compassionate. Couldn't ask for better care."</p></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"They treat my mother with such dignity and respect. We're so grateful."</p></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"After my surgery, they arranged care quickly. Absolutely wonderful people."</p></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"The management is so responsive. Nothing is too much trouble."</p></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Dad has dementia and they are so patient with him. He's much calmer now."</p></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"I've used several agencies but this one stands out. Highly recommended."</p></div>
+                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"The live-in carer they provided became part of our family. Wonderful person."</p></div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container footer-grid">
-            <div>
-                <h5>Perfections care Ltd</h5>
-                <p>11 Chequers Close, Corby<br>NN18 8QD</p>
-                <p>Healthcare provider</p>
-            </div>
-            <div>
-                <h5>Quick links</h5>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="careers.html">Careers</a>
-                <a href="funding.html">Funding</a>
-                <a href="testimonials.html">Testimonials</a>
-                <a href="blog.html">Blog</a>
-            </div>
-            <div>
-                <h5>Legal</h5>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Complaints</a>
-            </div>
-            <div>
-                <h5>Contact</h5>
-                <p>📞 01536 850341<br>📧 Okuseindeakinkunmi@gmail.com</p>
-            </div>
+            <div><h5>Perfections care Ltd</h5><p>Healthcare provider</p></div>
+            <div><h5>Quick links</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="testimonials.html">Testimonials</a></div>
+            <div><h5>Contact</h5><p>📞 01536 850341</p></div>
         </div>
-        <div class="container copyright">
-            © 2025 Perfections Care Ltd
-        </div>
+        <div class="container copyright">© 2025 Perfections Care Ltd</div>
     </footer>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const navLinks = document.getElementById('navLinks');
+        menuButton.addEventListener('click', () => navLinks.classList.toggle('show'));
+        document.getElementById('logo').addEventListener('click', () => window.location.href = 'index.html');
+    </script>
 </body>
 </html>

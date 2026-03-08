@@ -3,70 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us · Perfections Care Ltd</title>
+    <title>About · Perfections Care Ltd</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a1a2f; color: #ffffff; line-height: 1.5; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a1a2f; color: #ffffff; line-height: 1.5; overflow-x: hidden; }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         :root { --primary: #2a6f97; --primary-light: #1e3a5f; --accent: #4a9eff; --grey-light: #1e2f45; --border-light: #2a3f55; --star: #ffb74d; }
         
-        .text-logo { display: flex; flex-direction: column; }
-        .text-logo h1 { font-size: 2rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; line-height: 1.2; }
-        .text-logo .tagline { font-size: 1rem; font-weight: 500; color: var(--accent); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-        .text-logo .tagline span { background: #1e3a5f; padding: 4px 12px; border-radius: 40px; font-size: 0.85rem; color: #ffffff; }
+        @keyframes rainbow { 
+            0% { color: #ff6b6b; text-shadow: 0 0 10px #ff6b6b; }
+            14% { color: #ffb74d; text-shadow: 0 0 10px #ffb74d; }
+            28% { color: #ffee58; text-shadow: 0 0 10px #ffee58; }
+            42% { color: #66bb6a; text-shadow: 0 0 10px #66bb6a; }
+            57% { color: #4a9eff; text-shadow: 0 0 10px #4a9eff; }
+            71% { color: #7e57c2; text-shadow: 0 0 10px #7e57c2; }
+            85% { color: #ec407a; text-shadow: 0 0 10px #ec407a; }
+            100% { color: #ff6b6b; text-shadow: 0 0 10px #ff6b6b; }
+        }
         
-        .navbar { background: #0e2a40; box-shadow: 0 2px 16px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 10; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        @keyframes gradientBG { 0% { background-color: #0a1a2f; } 50% { background-color: #0d263b; } 100% { background-color: #0a1a2f; } }
+        
+        .fade-in { animation: fadeIn 0.6s ease forwards; }
+        .gradient-bg { animation: gradientBG 20s ease infinite; }
+        
+        .text-logo { display: flex; flex-direction: column; cursor: pointer; }
+        .text-logo h1 { font-size: 2rem; font-weight: 800; animation: rainbow 8s linear infinite; }
+        .text-logo .tagline { font-size: 1rem; color: var(--accent); display: flex; gap: 6px; flex-wrap: wrap; }
+        .text-logo .tagline span { background: #1e3a5f; padding: 4px 12px; border-radius: 40px; color: #ffffff; }
+        
+        .navbar { background: #0e2a40; position: sticky; top: 0; z-index: 10; }
         .nav-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 24px; }
+        
+        .menu-button { background: #1e3f5f; border: 1px solid var(--accent); border-radius: 50px; padding: 12px 24px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .menu-button:hover { background: #2a5f8a; }
+        
         .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
-        .nav-links a { text-decoration: none; padding: 10px 16px; font-weight: 500; color: #ffffff; border-radius: 40px; transition: 0.15s; font-size: 0.95rem; }
+        .nav-links a { text-decoration: none; padding: 10px 16px; color: #ffffff; border-radius: 40px; }
         .nav-links a:hover, .nav-links a.active { background: #1e3f5f; color: var(--accent); }
-        .contact-phone { background: #1e3f5f; padding: 8px 18px; border-radius: 60px; font-weight: 600; color: #ffffff; font-size: 0.95rem; border: 1px solid #2a5f8a; white-space: nowrap; }
         
-        .ad-banner { background: #1e3a5f; border: 1px solid #2a5f8a; border-radius: 60px; padding: 14px 28px; margin: 30px 0 10px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-        .ad-banner span { font-weight: 700; color: #ffb74d; }
-        .ad-banner small { font-weight: 500; color: #aaccff; }
-        .pill-link { background: #0e2a40; padding: 8px 24px; border-radius: 40px; text-decoration: none; color: var(--accent); font-weight: 600; border: 1px solid var(--accent); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; width: 100%; flex-direction: column; }
+            .nav-links.show { display: flex; }
+        }
         
-        .btn { display: inline-block; background: var(--accent); color: #0a1a2f; font-weight: 600; padding: 14px 34px; border-radius: 50px; text-decoration: none; box-shadow: 0 8px 18px rgba(0,0,0,0.3); border: none; cursor: pointer; }
-        .btn-outline { background: transparent; border: 2px solid var(--accent); color: #ffffff; box-shadow: none; }
+        .contact-phone { background: #1e3f5f; padding: 8px 18px; border-radius: 60px; color: #ffffff; border: 1px solid #2a5f8a; }
+        
+        .btn { display: inline-block; background: var(--accent); color: #0a1a2f; padding: 14px 34px; border-radius: 50px; text-decoration: none; }
+        .btn-outline { background: transparent; border: 2px solid var(--accent); color: #ffffff; }
         
         .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
-        .uk-stamp { display: inline-flex; align-items: center; gap: 8px; background: #1e3a5f; border: 2px solid var(--accent); border-radius: 40px; padding: 8px 24px; font-weight: 700; color: #ffffff; margin: 5px; }
+        .uk-stamp { display: inline-flex; background: #1e3a5f; border: 2px solid var(--accent); border-radius: 40px; padding: 8px 24px; color: #ffffff; margin: 5px; }
         
         .about-hero { background: linear-gradient(145deg, #0d2b42 0%, #0a1a2f 70%); padding: 50px 0; border-radius: 0 0 60px 60px; }
-        .founder-card { background: #1e3a5f; border-radius: 50px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin: 40px 0; }
         .value-item { background: #1e3a5f; border-radius: 40px; padding: 30px; text-align: center; }
         .value-icon { font-size: 3rem; margin-bottom: 15px; }
         .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0; }
         .team-card { background: #1e3a5f; border-radius: 40px; padding: 30px; text-align: center; border: 1px solid var(--border-light); }
         .team-avatar { font-size: 4rem; margin-bottom: 15px; }
-        .testimonial-card { background: #1e3a5f; border-radius: 32px; padding: 30px; border: 1px solid var(--border-light); }
-        .stars { color: var(--star); font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 18px; }
         
         .footer { background: #051220; color: #cccccc; padding: 48px 0 24px; border-top: 6px solid var(--accent); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 40px; }
-        .footer h5 { color: #ffffff; font-weight: 600; margin-bottom: 22px; font-size: 1.2rem; }
+        .footer h5 { color: #ffffff; font-weight: 600; margin-bottom: 22px; }
         .footer a { color: #aaccff; text-decoration: none; display: block; margin: 10px 0; }
-        .footer a:hover { color: #ffffff; }
         .copyright { text-align: center; padding-top: 50px; color: #888888; }
     </style>
 </head>
-<body>
+<body class="gradient-bg">
     <nav class="navbar">
         <div class="nav-container">
-            <div class="text-logo">
-                <h1>Perfections care Ltd</h1>
+            <div class="text-logo" id="logo">
+                <h1>PerfectionsCareLtd.com</h1>
                 <div class="tagline">
-                    <span>UK wide</span> 
+                    <span>UK wide</span>
                     <span>Healthcare</span>
-                    <span>Established</span>
+                    <span>Est. 2009</span>
                 </div>
             </div>
-            <div class="nav-links">
+            
+            <div class="menu-button" id="menuButton">
+                <span>☰</span> Menu
+            </div>
+            
+            <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="about.html" class="active">About</a>
                 <a href="services.html">Services</a>
@@ -76,43 +101,33 @@
                 <a href="careers.html">Careers</a>
                 <a href="funding.html">Funding</a>
             </div>
+            
             <div class="contact-phone">📞 01536 850341</div>
         </div>
     </nav>
-    
+
     <div class="container">
-        <div class="ad-banner">
-            <span>Healthcare you can trust</span>
-            <small>Professional care services</small>
-            <a href="contact.html" class="pill-link">Contact us</a>
-        </div>
+        <div class="uk-stamp" style="margin: 20px 0;">About our company</div>
     </div>
 
     <section class="about-hero">
         <div class="container">
-            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
-                <span class="uk-stamp">UK wide</span>
-                <span class="uk-stamp">Professional</span>
-                <span class="uk-stamp">Trusted</span>
-            </div>
             <h2 class="section-title">About Perfections Care Ltd</h2>
-            <p style="font-size: 1.3rem; max-width: 800px; color: #cccccc;">Professional healthcare services delivered by dedicated professionals across the UK.</p>
+            <p style="font-size: 1.3rem; color: #cccccc;">Professional healthcare services delivered by dedicated professionals.</p>
         </div>
     </section>
 
     <section style="padding: 50px 0;">
         <div class="container">
-            <div class="founder-card">
+            <div style="background: #1e3a5f; border-radius: 50px; padding: 40px;">
                 <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
                     <div style="flex: 1; min-width: 250px; text-align: center;">
                         <div style="font-size: 6rem;">👨‍⚕️</div>
-                        <h3 style="font-size: 2rem; color: #ffffff;">Akinkunmi Okuseinde</h3>
-                        <p style="font-size: 1.2rem; color: var(--accent);">Founder & Clinical Lead</p>
+                        <h3 style="color: #ffffff;">Our Founder</h3>
                     </div>
                     <div style="flex: 2;">
-                        <p style="font-size: 1.2rem; margin-bottom: 20px; color: #cccccc;">"I started Perfections Care to provide high-quality, compassionate healthcare services to communities across the UK."</p>
-                        <p style="color: #cccccc;">Akinkunmi qualified as a registered nurse and has over two decades of experience in healthcare. He founded Perfections Care in 2009 with a vision to create a service that puts people first.</p>
-                        <p style="margin-top: 20px; color: #cccccc;">Today, our team has grown to over 50 dedicated healthcare professionals serving communities nationwide.</p>
+                        <p style="font-size: 1.2rem; color: #cccccc;">"I started Perfections Care to provide high-quality, compassionate healthcare services."</p>
+                        <p style="margin-top: 20px; color: #cccccc;">Our team has grown to over 50 dedicated healthcare professionals serving communities nationwide.</p>
                     </div>
                 </div>
             </div>
@@ -121,7 +136,7 @@
 
     <section style="background: #0d263b; padding: 60px 0;">
         <div class="container">
-            <h3 class="section-title">Our core values</h3>
+            <h3 class="section-title">Our values</h3>
             <div class="values-grid">
                 <div class="value-item"><div class="value-icon">🤝</div><h4>Compassion</h4><p style="color: #cccccc;">We care with kindness and empathy.</p></div>
                 <div class="value-item"><div class="value-icon">🧠</div><h4>Respect</h4><p style="color: #cccccc;">We honour each person's choices.</p></div>
@@ -133,34 +148,12 @@
 
     <section style="padding: 60px 0;">
         <div class="container">
-            <h3 class="section-title">Meet our leadership team</h3>
+            <h3 class="section-title">Our team</h3>
             <div class="team-grid">
-                <div class="team-card"><div class="team-avatar">👩‍💼</div><h4>Sarah Mitchell</h4><p style="color: var(--accent);">Care Director</p><p style="color: #cccccc;">20+ years in healthcare.</p></div>
-                <div class="team-card"><div class="team-avatar">🧑‍⚕️</div><h4>James O'Brien</h4><p style="color: var(--accent);">Clinical Lead</p><p style="color: #cccccc;">Specialist in complex care.</p></div>
-                <div class="team-card"><div class="team-avatar">👩‍🏫</div><h4>Priya Patel</h4><p style="color: var(--accent);">Training Manager</p><p style="color: #cccccc;">Ensuring staff excellence.</p></div>
-                <div class="team-card"><div class="team-avatar">👨‍💻</div><h4>David Thompson</h4><p style="color: var(--accent);">Operations Manager</p><p style="color: #cccccc;">Scheduling and logistics.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section style="background: #0d263b; padding: 60px 0;">
-        <div class="container">
-            <h3 class="section-title">What our team says</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"I've been with Perfections for 8 years. They really value their staff."</p><div class="author">— Maria, Senior Carer</div></div>
-                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Excellent training and support. Proud to work here."</p><div class="author">— James, Healthcare Assistant</div></div>
-                <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Flexible hours and a supportive team environment."</p><div class="author">— Fatima, Care Assistant</div></div>
-            </div>
-        </div>
-    </section>
-
-    <section style="padding: 50px 0;">
-        <div class="container">
-            <div style="background: #1e3a5f; border-radius: 80px; padding: 50px; text-align: center;">
-                <h3 style="font-size: 2.2rem; color: #ffffff;">Want to learn more about us?</h3>
-                <p style="font-size: 1.3rem; margin: 20px 0; color: #cccccc;">We'd be happy to tell you more about our work.</p>
-                <a href="contact.html" class="btn">Get in touch</a>
-                <a href="services.html" class="btn btn-outline" style="margin-left: 15px;">Our services</a>
+                <div class="team-card"><div class="team-avatar">👩‍💼</div><h4>Care Director</h4><p style="color: #cccccc;">20+ years in healthcare.</p></div>
+                <div class="team-card"><div class="team-avatar">🧑‍⚕️</div><h4>Clinical Lead</h4><p style="color: #cccccc;">Specialist in complex care.</p></div>
+                <div class="team-card"><div class="team-avatar">👩‍🏫</div><h4>Training Manager</h4><p style="color: #cccccc;">Ensuring staff excellence.</p></div>
+                <div class="team-card"><div class="team-avatar">👨‍💻</div><h4>Operations Manager</h4><p style="color: #cccccc;">Scheduling and logistics.</p></div>
             </div>
         </div>
     </section>
@@ -169,7 +162,6 @@
         <div class="container footer-grid">
             <div>
                 <h5>Perfections care Ltd</h5>
-                <p>11 Chequers Close, Corby<br>NN18 8QD</p>
                 <p>Healthcare provider</p>
             </div>
             <div>
@@ -189,12 +181,19 @@
             </div>
             <div>
                 <h5>Contact</h5>
-                <p>📞 01536 850341<br>📧 Okuseindeakinkunmi@gmail.com</p>
+                <p>📞 01536 850341</p>
             </div>
         </div>
         <div class="container copyright">
             © 2025 Perfections Care Ltd
         </div>
     </footer>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const navLinks = document.getElementById('navLinks');
+        menuButton.addEventListener('click', () => navLinks.classList.toggle('show'));
+        document.getElementById('logo').addEventListener('click', () => window.location.href = 'index.html');
+    </script>
 </body>
 </html>

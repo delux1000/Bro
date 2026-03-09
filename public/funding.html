@@ -3,158 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funding · Perfections Care Ltd</title>
+    <title>Funding Advice · PerfectionsCareLtd</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a1a2f; color: #ffffff; line-height: 1.5; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        :root { --primary: #2a6f97; --primary-light: #1e3a5f; --accent: #4a9eff; --border-light: #2a3f55; }
+        body { font-family: 'Inter', sans-serif; background: #ffffff; color: #1e2b3c; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        @keyframes rainbow { 
-            0% { color: #ff6b6b; } 14% { color: #ffb74d; } 28% { color: #ffee58; } 42% { color: #66bb6a; } 57% { color: #4a9eff; } 71% { color: #7e57c2; } 85% { color: #ec407a; } 100% { color: #ff6b6b; }
-        }
+        .site-header { background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 12px 0; position: sticky; top: 0; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-box { background: #0057a3; color: white; font-weight: 700; font-size: 1.5rem; padding: 8px 16px; border-radius: 8px; }
+        .logo-box span { color: #ffc107; }
+        .logo-text { font-weight: 600; font-size: 1.2rem; color: #0057a3; }
         
-        .text-logo { display: flex; flex-direction: column; cursor: pointer; }
-        .text-logo h1 { font-size: 2rem; font-weight: 800; animation: rainbow 8s linear infinite; }
-        .text-logo .tagline span { background: #1e3a5f; padding: 4px 12px; border-radius: 40px; color: #ffffff; }
+        .main-nav { display: flex; gap: 28px; }
+        .main-nav a { text-decoration: none; color: #2c3e50; font-weight: 500; }
+        .main-nav a:hover, .main-nav a.active { color: #0057a3; }
         
-        .navbar { background: #0e2a40; position: sticky; top: 0; }
-        .nav-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 24px; }
+        .header-actions { display: flex; gap: 20px; }
+        .btn-outline { border: 1px solid #0057a3; color: #0057a3; padding: 10px 20px; border-radius: 40px; font-weight: 600; text-decoration: none; }
+        .btn-outline:hover { background: #0057a3; color: white; }
+        .btn-primary { background: #0057a3; color: white; padding: 12px 28px; border-radius: 40px; font-weight: 600; text-decoration: none; }
         
-        .menu-button { background: #1e3f5f; border: 1px solid var(--accent); border-radius: 50px; padding: 12px 24px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .hero-small { background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); padding: 50px 0; }
+        .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; color: #0a2540; }
+        .section-desc { font-size: 1.1rem; color: #4a5c6f; max-width: 700px; margin-bottom: 40px; }
         
-        .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
-        .nav-links a { text-decoration: none; padding: 10px 16px; color: #ffffff; border-radius: 40px; }
-        .nav-links a:hover, .nav-links a.active { background: #1e3f5f; color: var(--accent); }
-        
-        @media (max-width: 768px) {
-            .nav-links { display: none; width: 100%; flex-direction: column; }
-            .nav-links.show { display: flex; }
-        }
-        
-        .contact-phone { background: #1e3f5f; padding: 8px 18px; border-radius: 60px; color: #ffffff; border: 1px solid #2a5f8a; }
-        
-        .btn { background: var(--accent); color: #0a1a2f; padding: 14px 34px; border-radius: 50px; text-decoration: none; display: inline-block; }
-        .btn-outline { background: transparent; border: 2px solid var(--accent); color: #ffffff; }
-        
-        .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
-        .uk-stamp { display: inline-flex; background: #1e3a5f; border: 2px solid var(--accent); border-radius: 40px; padding: 8px 24px; color: #ffffff; margin: 5px; }
-        
-        .funding-hero { background: linear-gradient(145deg, #0d2b42 0%, #0a1a2f 70%); padding: 50px 0 30px; border-radius: 0 0 60px 60px; }
-        .funding-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
-        .funding-card { background: #1e3a5f; border-radius: 40px; padding: 35px; border: 1px solid var(--border-light); }
-        .funding-icon { background: #0e2a40; width: 70px; height: 70px; border-radius: 35px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 20px; }
-        .funding-card h3 { font-size: 1.6rem; color: #ffffff; margin-bottom: 15px; }
-        .funding-tag { background: #0e2a40; color: var(--accent); padding: 5px 15px; border-radius: 30px; display: inline-block; border: 1px solid var(--accent); margin: 10px 0; }
+        .funding-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 50px 0; }
+        .funding-card { background: #f8fafd; border-radius: 30px; padding: 35px; border: 1px solid #e4e9f2; transition: 0.2s; }
+        .funding-card:hover { box-shadow: 0 12px 24px rgba(0,0,0,0.05); border-color: #b0c8e0; }
+        .funding-icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .funding-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; }
+        .funding-tag { display: inline-block; background: #e1ecf9; color: #0057a3; padding: 4px 14px; border-radius: 40px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px; }
+        .funding-card p { color: #4a5c6f; margin-bottom: 15px; }
         .checklist { list-style: none; margin: 20px 0; }
-        .checklist li { margin: 10px 0; display: flex; align-items: center; gap: 10px; color: #cccccc; }
-        .checklist li::before { content: "✓"; color: var(--accent); font-weight: bold; }
-        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin: 40px 0; }
-        .step-item { background: #1e3a5f; border-radius: 40px; padding: 30px; text-align: center; }
-        .step-number { background: var(--accent); color: #0a1a2f; width: 50px; height: 50px; border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 20px; }
-        .consultation-box { background: #1e3a5f; border: 2px solid var(--accent); border-radius: 60px; padding: 50px; margin: 50px 0; text-align: center; }
-        .faq-item { background: #1e3a5f; border-radius: 30px; padding: 25px; margin-bottom: 15px; border: 1px solid var(--border-light); }
+        .checklist li { margin: 10px 0; display: flex; align-items: center; gap: 10px; color: #4a5c6f; }
+        .checklist li::before { content: "✓"; color: #0057a3; font-weight: bold; }
         
-        .footer { background: #051220; color: #cccccc; padding: 48px 0 24px; border-top: 6px solid var(--accent); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 40px; }
-        .footer h5 { color: #ffffff; font-weight: 600; margin-bottom: 22px; }
-        .footer a { color: #aaccff; text-decoration: none; display: block; }
-        .copyright { text-align: center; padding-top: 50px; color: #888888; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin: 50px 0; }
+        .step-item { background: #f8fafd; border-radius: 30px; padding: 30px; text-align: center; border: 1px solid #e4e9f2; }
+        .step-number { background: #0057a3; color: white; width: 50px; height: 50px; border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 20px; }
+        
+        .consultation-box { background: linear-gradient(135deg, #f0f7ff, #e6f0fa); border-radius: 60px; padding: 50px; text-align: center; margin: 50px 0; border: 1px solid #b0c8e0; }
+        
+        .faq-item { background: #f8fafd; border-radius: 30px; padding: 25px; margin-bottom: 15px; border: 1px solid #e4e9f2; }
+        .faq-item h4 { color: #0057a3; margin-bottom: 10px; }
+        
+        .footer { background: #0f283b; color: #dfecf5; padding: 60px 0 30px; margin-top: 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 40px; margin-bottom: 50px; }
+        .footer-col h5 { color: white; font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; }
+        .footer-col a { color: #b8d1e6; text-decoration: none; display: block; margin: 10px 0; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #2a4055; color: #9bb6cc; }
+        
+        @media (max-width: 800px) { .main-nav { display: none; } }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="text-logo" id="logo">
-                <h1>PerfectionsCareLtd</h1>
-                <div class="tagline"><span>UK wide</span> <span>Healthcare</span> <span>Est. 2009</span></div>
-            </div>
-            
-            <div class="menu-button" id="menuButton"><span>☰</span> Menu</div>
-            
-            <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
-                <a href="testimonials.html">Testimonials</a>
-                <a href="careers.html">Careers</a>
-                <a href="funding.html" class="active">Funding</a>
-            </div>
-            
-            <div class="contact-phone">📞 01536 850341</div>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo-area"><div class="logo-box">P<span>❤️</span>C</div><span class="logo-text">PerfectionsCareLtd</span></div>
+            <nav class="main-nav">
+                <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="careers.html">Careers</a><a href="funding.html" class="active">Funding</a><a href="testimonials.html">Testimonials</a>
+            </nav>
+            <div class="header-actions"><a href="contact.html" class="btn-outline">Get in touch</a><a href="tel:01536850341" class="btn-primary">📞 01536 850341</a></div>
         </div>
-    </nav>
+    </header>
+
+    <section class="hero-small">
+        <div class="container">
+            <h1 class="section-title">Funding advice</h1>
+            <p class="section-desc">Guidance on paying for care and available financial support.</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="funding-grid">
+            <div class="funding-card"><div class="funding-icon">🏥</div><h3>NHS Continuing Healthcare</h3><span class="funding-tag">Fully funded care</span><p>For those with significant ongoing health needs, the NHS may cover all care costs.</p><ul class="checklist"><li>Complex medical needs</li><li>Intense nursing requirements</li><li>Unstable health conditions</li></ul></div>
+            <div class="funding-card"><div class="funding-icon">🏛️</div><h3>Local authority funding</h3><span class="funding-tag">Means-tested</span><p>Council support for those with savings below a certain threshold.</p><ul class="checklist"><li>Care needs assessment</li><li>Financial assessment</li><li>Direct payments available</li></ul></div>
+            <div class="funding-card"><div class="funding-icon">💷</div><h3>Welfare benefits</h3><span class="funding-tag">Attendance Allowance · PIP</span><p>Financial support regardless of savings.</p><ul class="checklist"><li>Attendance Allowance (over 65)</li><li>Personal Independence Payment (under 65)</li><li>Carer's Allowance</li></ul></div>
+            <div class="funding-card"><div class="funding-icon">💰</div><h3>Self-funding</h3><span class="funding-tag">Private pay</span><p>Flexible packages for those arranging their own care.</p><ul class="checklist"><li>Hourly care</li><li>Live-in care packages</li><li>Respite care</li></ul></div>
+        </div>
+    </section>
+
+    <section style="background: #f8fafd; padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title">How to apply</h2>
+            <div class="steps-grid">
+                <div class="step-item"><div class="step-number">1</div><h3>Initial chat</h3><p>Free discussion about your situation</p></div>
+                <div class="step-item"><div class="step-number">2</div><h3>Check eligibility</h3><p>Understand which options apply</p></div>
+                <div class="step-item"><div class="step-number">3</div><h3>Gather evidence</h3><p>Medical and financial information</p></div>
+                <div class="step-item"><div class="step-number">4</div><h3>Submit application</h3><p>We guide you through the process</p></div>
+            </div>
+        </div>
+    </section>
 
     <div class="container">
-        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin: 30px 0;">
-            <span class="uk-stamp">NHS funding</span>
-            <span class="uk-stamp">Benefits advice</span>
-            <span class="uk-stamp">Free consultation</span>
+        <div class="consultation-box">
+            <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Free funding consultation</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">Speak to our funding advisor – no obligation.</p>
+            <div style="margin-bottom: 30px;">
+                <span style="background: #0057a3; color: white; padding: 12px 40px; border-radius: 60px; font-weight: 600; font-size: 1.3rem;">01536 850341</span>
+            </div>
+            <a href="contact.html" class="btn-primary">Email us</a>
         </div>
-        <h2 class="section-title">Funding and paying for care</h2>
     </div>
-
-    <section style="padding: 20px 0 40px;">
-        <div class="container">
-            <div class="funding-grid">
-                <div class="funding-card"><div class="funding-icon">🏥</div><h3>NHS Continuing Healthcare</h3><span class="funding-tag">Fully funded care</span><p style="color: #cccccc;">For those with significant ongoing health needs, the NHS may cover all care costs.</p><ul class="checklist"><li>Complex medical needs</li><li>Intense nursing requirements</li></ul></div>
-                <div class="funding-card"><div class="funding-icon">🏛️</div><h3>Local authority funding</h3><span class="funding-tag">Means-tested</span><p style="color: #cccccc;">Council support for those with savings below a certain threshold.</p><ul class="checklist"><li>Care needs assessment</li><li>Financial assessment</li></ul></div>
-                <div class="funding-card"><div class="funding-icon">💷</div><h3>Welfare benefits</h3><span class="funding-tag">Attendance Allowance · PIP</span><p style="color: #cccccc;">Financial support regardless of savings.</p><ul class="checklist"><li>Attendance Allowance</li><li>Personal Independence Payment</li></ul></div>
-                <div class="funding-card"><div class="funding-icon">💰</div><h3>Self-funding</h3><span class="funding-tag">Private pay</span><p style="color: #cccccc;">Flexible packages for those arranging their own care.</p><ul class="checklist"><li>Hourly care</li><li>Live-in care packages</li></ul></div>
-            </div>
-        </div>
-    </section>
-
-    <section style="background: #0d263b; padding: 60px 0;">
-        <div class="container">
-            <h3 class="section-title">How to apply</h3>
-            <div class="steps-grid">
-                <div class="step-item"><div class="step-number">1</div><h4>Initial chat</h4><p style="color: #cccccc;">Free discussion</p></div>
-                <div class="step-item"><div class="step-number">2</div><h4>Check eligibility</h4><p style="color: #cccccc;">Understand options</p></div>
-                <div class="step-item"><div class="step-number">3</div><h4>Gather evidence</h4><p style="color: #cccccc;">Medical information</p></div>
-                <div class="step-item"><div class="step-number">4</div><h4>Submit application</h4><p style="color: #cccccc;">We guide you</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="consultation-box">
-                <h3 style="font-size: 2.2rem;">Free funding consultation</h3>
-                <p style="font-size: 1.3rem; margin: 20px 0;">Speak to our funding advisor.</p>
-                <div style="margin: 30px 0;"><span style="background: var(--accent); color: #0a1a2f; padding: 12px 35px; border-radius: 60px; font-weight: 700;">01536 850341</span></div>
-                <a href="contact.html" class="btn">Contact us</a>
-            </div>
-        </div>
-    </section>
 
     <section style="padding: 60px 0;">
         <div class="container">
-            <h3 class="section-title">FAQs</h3>
-            <div class="faq-item"><h4 style="color: var(--accent);">What is NHS Continuing Healthcare?</h4><p style="color: #cccccc;">Care funded by the NHS for those with a primary health need.</p></div>
-            <div class="faq-item"><h4 style="color: var(--accent);">Can I get help if I own my home?</h4><p style="color: #cccccc;">For care at home, your home is usually disregarded.</p></div>
+            <h2 class="section-title">Frequently asked questions</h2>
+            <div class="faq-item"><h4>What is NHS Continuing Healthcare?</h4><p>A package of care funded entirely by the NHS for those with a primary health need.</p></div>
+            <div class="faq-item"><h4>Can I get help if I own my home?</h4><p>For care at home, your home is usually disregarded. For care homes, it may be included in the means test.</p></div>
+            <div class="faq-item"><h4>How long do assessments take?</h4><p>Typically 4-6 weeks, but can be faster in urgent cases.</p></div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container footer-grid">
-            <div><h5>Perfections care Ltd</h5><p>Healthcare provider</p></div>
-            <div><h5>Quick links</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="funding.html">Funding</a></div>
-            <div><h5>Contact</h5><p>📞 01536 850341</p></div>
+            <div class="footer-col"><h5>PerfectionsCareLtd</h5><p style="color: #b8d1e6;">Healthcare and support services across the UK.</p></div>
+            <div class="footer-col"><h5>Explore</h5><a href="about.html">About us</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="careers.html">Careers</a></div>
+            <div class="footer-col"><h5>Support</h5><a href="contact.html">Contact us</a><a href="funding.html">Funding advice</a><a href="testimonials.html">Testimonials</a></div>
+            <div class="footer-col"><h5>Legal</h5><a href="#">Privacy policy</a><a href="#">Terms of use</a><a href="#">Complaints</a></div>
         </div>
-        <div class="container copyright">© 2025 Perfections Care Ltd</div>
+        <div class="container copyright">© 2025 PerfectionsCareLtd. All rights reserved.</div>
     </footer>
-
-    <script>
-        const menuButton = document.getElementById('menuButton');
-        const navLinks = document.getElementById('navLinks');
-        menuButton.addEventListener('click', () => navLinks.classList.toggle('show'));
-        document.getElementById('logo').addEventListener('click', () => window.location.href = 'index.html');
-    </script>
 </body>
 </html>

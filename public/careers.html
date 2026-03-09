@@ -3,163 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers · Perfections Care Ltd</title>
+    <title>Careers · PerfectionsCareLtd</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a1a2f; color: #ffffff; line-height: 1.5; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        :root { --primary: #2a6f97; --primary-light: #1e3a5f; --accent: #4a9eff; --border-light: #2a3f55; }
+        body { font-family: 'Inter', sans-serif; background: #ffffff; color: #1e2b3c; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        @keyframes rainbow { 
-            0% { color: #ff6b6b; } 14% { color: #ffb74d; } 28% { color: #ffee58; } 42% { color: #66bb6a; } 57% { color: #4a9eff; } 71% { color: #7e57c2; } 85% { color: #ec407a; } 100% { color: #ff6b6b; }
-        }
+        .site-header { background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 12px 0; position: sticky; top: 0; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-box { background: #0057a3; color: white; font-weight: 700; font-size: 1.5rem; padding: 8px 16px; border-radius: 8px; }
+        .logo-box span { color: #ffc107; }
+        .logo-text { font-weight: 600; font-size: 1.2rem; color: #0057a3; }
         
-        .text-logo { display: flex; flex-direction: column; cursor: pointer; }
-        .text-logo h1 { font-size: 2rem; font-weight: 800; animation: rainbow 8s linear infinite; }
-        .text-logo .tagline span { background: #1e3a5f; padding: 4px 12px; border-radius: 40px; color: #ffffff; }
+        .main-nav { display: flex; gap: 28px; }
+        .main-nav a { text-decoration: none; color: #2c3e50; font-weight: 500; }
+        .main-nav a:hover, .main-nav a.active { color: #0057a3; }
         
-        .navbar { background: #0e2a40; position: sticky; top: 0; }
-        .nav-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 24px; }
+        .header-actions { display: flex; gap: 20px; }
+        .btn-outline { border: 1px solid #0057a3; color: #0057a3; padding: 10px 20px; border-radius: 40px; font-weight: 600; text-decoration: none; }
+        .btn-outline:hover { background: #0057a3; color: white; }
+        .btn-primary { background: #0057a3; color: white; padding: 12px 28px; border-radius: 40px; font-weight: 600; text-decoration: none; }
         
-        .menu-button { background: #1e3f5f; border: 1px solid var(--accent); border-radius: 50px; padding: 12px 24px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .hero-small { background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); padding: 50px 0; }
+        .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; color: #0a2540; }
+        .section-desc { font-size: 1.1rem; color: #4a5c6f; max-width: 700px; margin-bottom: 40px; }
         
-        .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
-        .nav-links a { text-decoration: none; padding: 10px 16px; color: #ffffff; border-radius: 40px; }
-        .nav-links a:hover, .nav-links a.active { background: #1e3f5f; color: var(--accent); }
-        
-        @media (max-width: 768px) {
-            .nav-links { display: none; width: 100%; flex-direction: column; }
-            .nav-links.show { display: flex; }
-        }
-        
-        .contact-phone { background: #1e3f5f; padding: 8px 18px; border-radius: 60px; color: #ffffff; border: 1px solid #2a5f8a; }
-        
-        .btn { background: var(--accent); color: #0a1a2f; padding: 14px 34px; border-radius: 50px; text-decoration: none; display: inline-block; border: none; cursor: pointer; }
-        
-        .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
-        .uk-stamp { display: inline-flex; background: #1e3a5f; border: 2px solid var(--accent); border-radius: 40px; padding: 8px 24px; color: #ffffff; margin: 5px; }
-        
-        .careers-hero { background: linear-gradient(145deg, #0d2b42 0%, #0a1a2f 70%); padding: 50px 0 30px; border-radius: 0 0 60px 60px; }
-        .job-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0; }
-        .job-card { background: #1e3a5f; border-radius: 40px; padding: 35px; border: 1px solid var(--border-light); }
-        .job-icon { background: #0e2a40; width: 70px; height: 70px; border-radius: 35px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 20px; }
-        .job-card h3 { font-size: 1.6rem; color: #ffffff; margin-bottom: 15px; }
+        .job-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 50px 0; }
+        .job-card { background: #f8fafd; border-radius: 30px; padding: 35px; border: 1px solid #e4e9f2; transition: 0.2s; }
+        .job-card:hover { box-shadow: 0 12px 24px rgba(0,0,0,0.05); border-color: #b0c8e0; }
+        .job-icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .job-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; }
         .job-tags { display: flex; gap: 10px; flex-wrap: wrap; margin: 15px 0; }
-        .job-tag { background: #0e2a40; padding: 6px 16px; border-radius: 30px; color: var(--accent); border: 1px solid var(--accent); }
+        .job-tag { background: #e1ecf9; color: #0057a3; padding: 6px 16px; border-radius: 40px; font-size: 0.85rem; font-weight: 600; }
+        
         .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin: 40px 0; }
-        .benefit-item { background: #1e3a5f; border-radius: 40px; padding: 30px; text-align: center; }
-        .benefit-icon { font-size: 3rem; margin-bottom: 15px; }
-        .application-form { background: #1e3a5f; border-radius: 60px; padding: 50px; border: 1px solid var(--border-light); margin: 50px 0; }
+        .benefit-item { background: #f8fafd; border-radius: 30px; padding: 30px; text-align: center; border: 1px solid #e4e9f2; }
+        .benefit-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        
+        .application-form { background: #f8fafd; border-radius: 40px; padding: 50px; margin: 50px 0; border: 1px solid #e4e9f2; }
         .form-group { margin-bottom: 20px; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 16px 20px; border-radius: 60px; border: 1px solid #2a5f8a; background: #0e2a40; color: #ffffff; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 16px 20px; border-radius: 40px; border: 1px solid #d0ddee; font-family: 'Inter', sans-serif; }
         .form-group textarea { border-radius: 30px; min-height: 120px; }
         
-        .footer { background: #051220; color: #cccccc; padding: 48px 0 24px; border-top: 6px solid var(--accent); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 40px; }
-        .footer h5 { color: #ffffff; font-weight: 600; margin-bottom: 22px; }
-        .footer a { color: #aaccff; text-decoration: none; display: block; }
-        .copyright { text-align: center; padding-top: 50px; color: #888888; }
+        .footer { background: #0f283b; color: #dfecf5; padding: 60px 0 30px; margin-top: 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 40px; margin-bottom: 50px; }
+        .footer-col h5 { color: white; font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; }
+        .footer-col a { color: #b8d1e6; text-decoration: none; display: block; margin: 10px 0; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #2a4055; color: #9bb6cc; }
+        
+        @media (max-width: 800px) { .main-nav { display: none; } }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="text-logo" id="logo">
-                <h1>PerfectionsCareLtd</h1>
-                <div class="tagline"><span>UK wide</span> <span>Healthcare</span> <span>Est. 2009</span></div>
-            </div>
-            
-            <div class="menu-button" id="menuButton"><span>☰</span> Menu</div>
-            
-            <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
-                <a href="testimonials.html">Testimonials</a>
-                <a href="careers.html" class="active">Careers</a>
-                <a href="funding.html">Funding</a>
-            </div>
-            
-            <div class="contact-phone">📞 01536 850341</div>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo-area"><div class="logo-box">P<span>❤️</span>C</div><span class="logo-text">PerfectionsCareLtd</span></div>
+            <nav class="main-nav">
+                <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="careers.html" class="active">Careers</a><a href="funding.html">Funding</a><a href="testimonials.html">Testimonials</a>
+            </nav>
+            <div class="header-actions"><a href="contact.html" class="btn-outline">Get in touch</a><a href="tel:01536850341" class="btn-primary">📞 01536 850341</a></div>
         </div>
-    </nav>
+    </header>
 
-    <div class="container">
-        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin: 30px 0;">
-            <span class="uk-stamp">Join our team</span>
-            <span class="uk-stamp">Training provided</span>
-            <span class="uk-stamp">Career progression</span>
-        </div>
-        <h2 class="section-title">Careers</h2>
-    </div>
-
-    <section style="padding: 20px 0 40px;">
+    <section class="hero-small">
         <div class="container">
-            <div class="job-grid">
-                <div class="job-card"><div class="job-icon">👩‍⚕️</div><h3>Care Assistant</h3><div class="job-tags"><span class="job-tag">Full time</span><span class="job-tag">Part time</span></div><p>Providing personal care, companionship and support. Full training provided.</p><a href="#apply" class="btn" style="margin-top: 20px;">Apply</a></div>
-                <div class="job-card"><div class="job-icon">🧑‍⚕️</div><h3>Senior Care Assistant</h3><div class="job-tags"><span class="job-tag">Full time</span></div><p>Lead shifts, supervise teams, administer medication. Experience required.</p><a href="#apply" class="btn">Apply</a></div>
-                <div class="job-card"><div class="job-icon">👩‍🏫</div><h3>Trainee Nursing Associate</h3><div class="job-tags"><span class="job-tag">Apprenticeship</span></div><p>Earn while you learn. Work towards a foundation degree.</p><a href="#apply" class="btn">Apply</a></div>
-                <div class="job-card"><div class="job-icon">🧑‍🔧</div><h3>Complex Care Specialist</h3><div class="job-tags"><span class="job-tag">Full time</span></div><p>Support clients with complex needs. Enhanced pay for specialist skills.</p><a href="#apply" class="btn">Apply</a></div>
-                <div class="job-card"><div class="job-icon">📋</div><h3>Care Coordinator</h3><div class="job-tags"><span class="job-tag">Office based</span></div><p>Scheduling, client liaison, supporting field staff.</p><a href="#apply" class="btn">Apply</a></div>
-                <div class="job-card"><div class="job-icon">🚗</div><h3>Live-in Carer</h3><div class="job-tags"><span class="job-tag">Residential</span></div><p>24/7 support in client's home. Accommodation and meals provided.</p><a href="#apply" class="btn">Apply</a></div>
-            </div>
+            <h1 class="section-title">Careers</h1>
+            <p class="section-desc">Join our team and make a difference in people's lives.</p>
         </div>
     </section>
 
-    <section style="background: #0d263b; padding: 60px 0;">
-        <div class="container">
-            <h3 class="section-title">Benefits</h3>
-            <div class="benefits-grid">
-                <div class="benefit-item"><div class="benefit-icon">💰</div><h4>Competitive pay</h4><p style="color: #cccccc;">Rates above industry average</p></div>
-                <div class="benefit-item"><div class="benefit-icon">📚</div><h4>Free training</h4><p style="color: #cccccc;">Ongoing development</p></div>
-                <div class="benefit-item"><div class="benefit-icon">🕒</div><h4>Flexible hours</h4><p style="color: #cccccc;">Various shift patterns</p></div>
-                <div class="benefit-item"><div class="benefit-icon">👥</div><h4>Supportive team</h4><p style="color: #cccccc;">24/7 management support</p></div>
-            </div>
+    <section class="container" style="padding: 20px 0;">
+        <div class="benefits-grid">
+            <div class="benefit-item"><div class="benefit-icon">💰</div><h3>Competitive pay</h3><p>Excellent rates and benefits</p></div>
+            <div class="benefit-item"><div class="benefit-icon">📚</div><h3>Paid training</h3><p>Ongoing development opportunities</p></div>
+            <div class="benefit-item"><div class="benefit-icon">🕒</div><h3>Flexible hours</h3><p>Full-time, part-time and bank shifts</p></div>
+            <div class="benefit-item"><div class="benefit-icon">🚗</div><h3>Mileage paid</h3><p>Travel time and expenses covered</p></div>
         </div>
     </section>
 
-    <section style="padding: 40px 0;" id="apply">
-        <div class="container">
-            <div class="application-form">
-                <h3 style="font-size: 2.2rem; margin-bottom: 20px;">Apply now</h3>
-                <form>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group"><input type="text" placeholder="First name *"></div>
-                        <div class="form-group"><input type="text" placeholder="Last name *"></div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group"><input type="email" placeholder="Email *"></div>
-                        <div class="form-group"><input type="tel" placeholder="Phone *"></div>
-                    </div>
-                    <div class="form-group">
-                        <select><option>Position applying for</option><option>Care Assistant</option><option>Senior Care Assistant</option></select>
-                    </div>
-                    <div class="form-group"><textarea placeholder="Tell us about your experience *"></textarea></div>
-                    <button type="submit" class="btn" style="width: 100%;">Submit application</button>
-                </form>
-            </div>
+    <section class="container">
+        <h2 class="section-title">Current vacancies</h2>
+        <div class="job-grid">
+            <div class="job-card"><div class="job-icon">👩‍⚕️</div><h3>Care Assistant</h3><div class="job-tags"><span class="job-tag">Full time</span><span class="job-tag">Part time</span></div><p>Providing personal care, companionship and support. Full training provided.</p></div>
+            <div class="job-card"><div class="job-icon">🧑‍⚕️</div><h3>Senior Care Assistant</h3><div class="job-tags"><span class="job-tag">Full time</span><span class="job-tag">Nights</span></div><p>Lead shifts, supervise teams, administer medication. Experience required.</p></div>
+            <div class="job-card"><div class="job-icon">👩‍🏫</div><h3>Trainee Nursing Associate</h3><div class="job-tags"><span class="job-tag">Apprenticeship</span></div><p>Earn while you learn. Work towards a foundation degree.</p></div>
+            <div class="job-card"><div class="job-icon">🧑‍🔧</div><h3>Complex Care Specialist</h3><div class="job-tags"><span class="job-tag">Full time</span></div><p>Support clients with complex needs. Enhanced pay for specialist skills.</p></div>
+            <div class="job-card"><div class="job-icon">📋</div><h3>Care Coordinator</h3><div class="job-tags"><span class="job-tag">Office based</span></div><p>Scheduling, client liaison, supporting field staff.</p></div>
+            <div class="job-card"><div class="job-icon">🚗</div><h3>Live-in Carer</h3><div class="job-tags"><span class="job-tag">Residential</span></div><p>24/7 support in client's home. Accommodation provided.</p></div>
+        </div>
+    </section>
+
+    <section class="container" id="apply">
+        <div class="application-form">
+            <h2 style="font-size: 2rem; margin-bottom: 30px;">Apply now</h2>
+            <form>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group"><input type="text" placeholder="First name *"></div>
+                    <div class="form-group"><input type="text" placeholder="Last name *"></div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group"><input type="email" placeholder="Email *"></div>
+                    <div class="form-group"><input type="tel" placeholder="Phone *"></div>
+                </div>
+                <div class="form-group">
+                    <select>
+                        <option>Position applying for</option>
+                        <option>Care Assistant</option>
+                        <option>Senior Care Assistant</option>
+                        <option>Trainee Nursing Associate</option>
+                        <option>Complex Care Specialist</option>
+                        <option>Care Coordinator</option>
+                        <option>Live-in Carer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Tell us about your experience *"></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Submit application</button>
+            </form>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container footer-grid">
-            <div><h5>Perfections care Ltd</h5><p>Healthcare provider</p></div>
-            <div><h5>Quick links</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="careers.html">Careers</a></div>
-            <div><h5>Contact</h5><p>📞 01536 850341</p></div>
+            <div class="footer-col"><h5>PerfectionsCareLtd</h5><p style="color: #b8d1e6;">Healthcare and support services across the UK.</p></div>
+            <div class="footer-col"><h5>Explore</h5><a href="about.html">About us</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="careers.html">Careers</a></div>
+            <div class="footer-col"><h5>Support</h5><a href="contact.html">Contact us</a><a href="funding.html">Funding advice</a><a href="testimonials.html">Testimonials</a></div>
+            <div class="footer-col"><h5>Legal</h5><a href="#">Privacy policy</a><a href="#">Terms of use</a><a href="#">Complaints</a></div>
         </div>
-        <div class="container copyright">© 2025 Perfections Care Ltd</div>
+        <div class="container copyright">© 2025 PerfectionsCareLtd. All rights reserved.</div>
     </footer>
-
-    <script>
-        const menuButton = document.getElementById('menuButton');
-        const navLinks = document.getElementById('navLinks');
-        menuButton.addEventListener('click', () => navLinks.classList.toggle('show'));
-        document.getElementById('logo').addEventListener('click', () => window.location.href = 'index.html');
-    </script>
 </body>
 </html>

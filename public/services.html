@@ -3,137 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services · Perfections Care Ltd</title>
+    <title>Our Services · PerfectionsCareLtd</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a1a2f; color: #ffffff; line-height: 1.5; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        :root { --primary: #2a6f97; --primary-light: #1e3a5f; --accent: #4a9eff; --border-light: #2a3f55; }
+        body { font-family: 'Inter', sans-serif; background: #ffffff; color: #1e2b3c; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        @keyframes rainbow { 
-            0% { color: #ff6b6b; } 14% { color: #ffb74d; } 28% { color: #ffee58; } 42% { color: #66bb6a; } 57% { color: #4a9eff; } 71% { color: #7e57c2; } 85% { color: #ec407a; } 100% { color: #ff6b6b; }
-        }
+        .site-header { background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 12px 0; position: sticky; top: 0; z-index: 10; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-box { background: #0057a3; color: white; font-weight: 700; font-size: 1.5rem; padding: 8px 16px; border-radius: 8px; }
+        .logo-box span { color: #ffc107; }
+        .logo-text { font-weight: 600; font-size: 1.2rem; color: #0057a3; }
         
-        .text-logo { display: flex; flex-direction: column; cursor: pointer; }
-        .text-logo h1 { font-size: 2rem; font-weight: 800; animation: rainbow 8s linear infinite; }
-        .text-logo .tagline span { background: #1e3a5f; padding: 4px 12px; border-radius: 40px; color: #ffffff; }
+        .main-nav { display: flex; gap: 28px; }
+        .main-nav a { text-decoration: none; color: #2c3e50; font-weight: 500; font-size: 0.95rem; }
+        .main-nav a:hover, .main-nav a.active { color: #0057a3; }
         
-        .navbar { background: #0e2a40; position: sticky; top: 0; }
-        .nav-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 24px; }
+        .header-actions { display: flex; gap: 20px; }
+        .btn-outline { border: 1px solid #0057a3; color: #0057a3; padding: 10px 20px; border-radius: 40px; font-weight: 600; text-decoration: none; }
+        .btn-outline:hover { background: #0057a3; color: white; }
+        .btn-primary { background: #0057a3; color: white; padding: 12px 28px; border-radius: 40px; font-weight: 600; text-decoration: none; }
         
-        .menu-button { background: #1e3f5f; border: 1px solid var(--accent); border-radius: 50px; padding: 12px 24px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .hero-small { background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%); padding: 50px 0; }
+        .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; color: #0a2540; }
+        .section-desc { font-size: 1.1rem; color: #4a5c6f; max-width: 700px; margin-bottom: 40px; }
         
-        .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
-        .nav-links a { text-decoration: none; padding: 10px 16px; color: #ffffff; border-radius: 40px; }
-        .nav-links a:hover, .nav-links a.active { background: #1e3f5f; color: var(--accent); }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 50px 0; }
+        .service-card { background: #f8fafd; border-radius: 24px; padding: 30px; border: 1px solid #e4e9f2; transition: 0.2s; }
+        .service-card:hover { box-shadow: 0 12px 24px rgba(0,0,0,0.05); border-color: #b0c8e0; }
+        .service-icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .service-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+        .service-card p { color: #4a5c6f; margin-bottom: 20px; }
         
-        @media (max-width: 768px) {
-            .nav-links { display: none; width: 100%; flex-direction: column; }
-            .nav-links.show { display: flex; }
-        }
+        .category-tag { display: inline-block; background: #e1ecf9; color: #0057a3; padding: 4px 12px; border-radius: 30px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px; }
         
-        .contact-phone { background: #1e3f5f; padding: 8px 18px; border-radius: 60px; color: #ffffff; border: 1px solid #2a5f8a; }
+        .footer { background: #0f283b; color: #dfecf5; padding: 60px 0 30px; margin-top: 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 40px; margin-bottom: 50px; }
+        .footer-col h5 { color: white; font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; }
+        .footer-col a { color: #b8d1e6; text-decoration: none; display: block; margin: 10px 0; }
+        .footer-col a:hover { color: white; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid #2a4055; color: #9bb6cc; }
         
-        .btn { display: inline-block; background: var(--accent); color: #0a1a2f; padding: 14px 34px; border-radius: 50px; text-decoration: none; }
-        .btn-outline { background: transparent; border: 2px solid var(--accent); color: #ffffff; }
-        
-        .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; }
-        .uk-stamp { display: inline-flex; background: #1e3a5f; border: 2px solid var(--accent); border-radius: 40px; padding: 8px 24px; color: #ffffff; margin: 5px; }
-        
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin: 40px 0; }
-        .service-card { background: #1e3a5f; border-radius: 40px; padding: 30px 20px; border: 1px solid var(--border-light); text-align: center; }
-        .service-card:hover { border-color: var(--accent); }
-        .service-icon { font-size: 3rem; margin-bottom: 20px; }
-        .service-card h3 { font-size: 1.3rem; color: #ffffff; margin-bottom: 10px; }
-        .service-card p { color: #cccccc; }
-        
-        .footer { background: #051220; color: #cccccc; padding: 48px 0 24px; border-top: 6px solid var(--accent); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 40px; }
-        .footer h5 { color: #ffffff; font-weight: 600; margin-bottom: 22px; }
-        .footer a { color: #aaccff; text-decoration: none; display: block; }
-        .copyright { text-align: center; padding-top: 50px; color: #888888; }
+        @media (max-width: 800px) { .main-nav { display: none; } }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="text-logo" id="logo">
-                <h1>PerfectionsCareLtd</h1>
-                <div class="tagline"><span>UK wide</span> <span>Healthcare</span> <span>Est. 2009</span></div>
-            </div>
-            
-            <div class="menu-button" id="menuButton"><span>☰</span> Menu</div>
-            
-            <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html" class="active">Services</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
-                <a href="testimonials.html">Testimonials</a>
-                <a href="careers.html">Careers</a>
-                <a href="funding.html">Funding</a>
-            </div>
-            
-            <div class="contact-phone">📞 01536 850341</div>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo-area"><div class="logo-box">P<span>❤️</span>C</div><span class="logo-text">PerfectionsCareLtd</span></div>
+            <nav class="main-nav">
+                <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" class="active">Services</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="careers.html">Careers</a><a href="funding.html">Funding</a><a href="testimonials.html">Testimonials</a>
+            </nav>
+            <div class="header-actions"><a href="contact.html" class="btn-outline">Get in touch</a><a href="tel:01536850341" class="btn-primary">📞 01536 850341</a></div>
         </div>
-    </nav>
+    </header>
 
-    <div class="container">
-        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin: 30px 0;">
-            <span class="uk-stamp">20+ services</span>
-            <span class="uk-stamp">Specialist care</span>
-            <span class="uk-stamp">Professional team</span>
-        </div>
-        <h2 class="section-title">Our services</h2>
-    </div>
-
-    <section style="padding: 20px 0 50px;">
+    <section class="hero-small">
         <div class="container">
-            <div class="service-grid">
-                <div class="service-card"><div class="service-icon">🚿</div><h3>Personal care</h3><p>Bathing, dressing, grooming</p></div>
-                <div class="service-card"><div class="service-icon">🍽️</div><h3>Meal preparation</h3><p>Healthy meals</p></div>
-                <div class="service-card"><div class="service-icon">💊</div><h3>Medication support</h3><p>Reminders, administration</p></div>
-                <div class="service-card"><div class="service-icon">🩺</div><h3>Complex clinical care</h3><p>Specialist support</p></div>
-                <div class="service-card"><div class="service-icon">🧠</div><h3>Dementia care</h3><p>Memory support</p></div>
-                <div class="service-card"><div class="service-icon">🦯</div><h3>Physical disability</h3><p>Mobility, transfers</p></div>
-                <div class="service-card"><div class="service-icon">🗣️</div><h3>Learning disability</h3><p>Person-centred support</p></div>
-                <div class="service-card"><div class="service-icon">🧘</div><h3>Mental health</h3><p>Recovery-focused support</p></div>
-                <div class="service-card"><div class="service-icon">🛌</div><h3>Live-in care</h3><p>24/7 full-time support</p></div>
-                <div class="service-card"><div class="service-icon">🌙</div><h3>Waking nights</h3><p>Overnight care</p></div>
-                <div class="service-card"><div class="service-icon">🏥</div><h3>Hospital discharge</h3><p>Support to come home</p></div>
-                <div class="service-card"><div class="service-icon">🩼</div><h3>Reablement</h3><p>Regain independence</p></div>
-                <div class="service-card"><div class="service-icon">🫂</div><h3>Companionship</h3><p>Social visits, outings</p></div>
-                <div class="service-card"><div class="service-icon">🧴</div><h3>Palliative care</h3><p>End-of-life comfort</p></div>
-                <div class="service-card"><div class="service-icon">🩻</div><h3>Stroke rehabilitation</h3><p>Recovery exercises</p></div>
-                <div class="service-card"><div class="service-icon">🦽</div><h3>MS / MND support</h3><p>Neurological care</p></div>
-                <div class="service-card"><div class="service-icon">🧩</div><h3>Autism support</h3><p>Structured routines</p></div>
-                <div class="service-card"><div class="service-icon">🫀</div><h3>Cardiac care</h3><p>Post-op, heart management</p></div>
-                <div class="service-card"><div class="service-icon">🫁</div><h3>Tracheostomy care</h3><p>Specialist support</p></div>
-                <div class="service-card"><div class="service-icon">🧪</div><h3>PEG feeding</h3><p>Enteral feed support</p></div>
-                <div class="service-card"><div class="service-icon">🩸</div><h3>Catheter care</h3><p>Hygiene, management</p></div>
-                <div class="service-card"><div class="service-icon">🧖</div><h3>Sitting service</h3><p>Respite for families</p></div>
-            </div>
+            <h1 class="section-title">Our services</h1>
+            <p class="section-desc">Comprehensive care and support tailored to individual needs.</p>
+        </div>
+    </section>
+
+    <section class="container" style="padding: 50px 0;">
+        <div class="service-grid">
+            <div class="service-card"><span class="category-tag">Daily living</span><div class="service-icon">🚿</div><h3>Personal care</h3><p>Bathing, dressing, grooming and toileting with dignity.</p></div>
+            <div class="service-card"><span class="category-tag">Daily living</span><div class="service-icon">🍽️</div><h3>Meal preparation</h3><p>Healthy, home-cooked meals tailored to dietary needs.</p></div>
+            <div class="service-card"><span class="category-tag">Medical</span><div class="service-icon">💊</div><h3>Medication support</h3><p>Reminders, administration and monitoring.</p></div>
+            <div class="service-card"><span class="category-tag">Clinical</span><div class="service-icon">🩺</div><h3>Complex care</h3><p>PEG, tracheostomy, ventilation – trained nurses.</p></div>
+            <div class="service-card"><span class="category-tag">Specialist</span><div class="service-icon">🧠</div><h3>Dementia care</h3><p>Memory support, activities and routines.</p></div>
+            <div class="service-card"><span class="category-tag">Specialist</span><div class="service-icon">🦯</div><h3>Physical disability</h3><p>Mobility assistance, hoisting, transfers.</p></div>
+            <div class="service-card"><span class="category-tag">Specialist</span><div class="service-icon">🗣️</div><h3>Learning disability</h3><p>Person-centred support for independence.</p></div>
+            <div class="service-card"><span class="category-tag">Specialist</span><div class="service-icon">🧘</div><h3>Mental health</h3><p>Recovery-focused support and companionship.</p></div>
+            <div class="service-card"><span class="category-tag">Residential</span><div class="service-icon">🛌</div><h3>Live-in care</h3><p>24/7 support from a dedicated carer.</p></div>
+            <div class="service-card"><span class="category-tag">Residential</span><div class="service-icon">🌙</div><h3>Waking nights</h3><p>Overnight care for safety and reassurance.</p></div>
+            <div class="service-card"><span class="category-tag">Recovery</span><div class="service-icon">🏥</div><h3>Hospital discharge</h3><p>Support to return home safely.</p></div>
+            <div class="service-card"><span class="category-tag">Recovery</span><div class="service-icon">🩼</div><h3>Reablement</h3><p>Regain independence after illness.</p></div>
+            <div class="service-card"><span class="category-tag">Social</span><div class="service-icon">🫂</div><h3>Companionship</h3><p>Social visits, outings and conversation.</p></div>
+            <div class="service-card"><span class="category-tag">Specialist</span><div class="service-icon">🧴</div><h3>Palliative care</h3><p>End-of-life comfort and family support.</p></div>
+            <div class="service-card"><span class="category-tag">Recovery</span><div class="service-icon">🩻</div><h3>Stroke rehab</h3><p>Recovery exercises and adaptation.</p></div>
+            <div class="service-card"><span class="category-tag">Specialist</span><div class="service-icon">🦽</div><h3>MS / MND support</h3><p>Neurological care specialists.</p></div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container footer-grid">
-            <div><h5>Perfections care Ltd</h5><p>Healthcare provider</p></div>
-            <div><h5>Quick links</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="careers.html">Careers</a></div>
-            <div><h5>Contact</h5><p>📞 01536 850341</p></div>
+            <div class="footer-col"><h5>PerfectionsCareLtd</h5><p style="color: #b8d1e6;">Healthcare and support services across the UK.</p></div>
+            <div class="footer-col"><h5>Explore</h5><a href="about.html">About us</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a href="careers.html">Careers</a></div>
+            <div class="footer-col"><h5>Support</h5><a href="contact.html">Contact us</a><a href="funding.html">Funding advice</a><a href="testimonials.html">Testimonials</a></div>
+            <div class="footer-col"><h5>Legal</h5><a href="#">Privacy policy</a><a href="#">Terms of use</a><a href="#">Complaints</a></div>
         </div>
-        <div class="container copyright">© 2025 Perfections Care Ltd</div>
+        <div class="container copyright">© 2025 PerfectionsCareLtd. All rights reserved.</div>
     </footer>
-
-    <script>
-        const menuButton = document.getElementById('menuButton');
-        const navLinks = document.getElementById('navLinks');
-        menuButton.addEventListener('click', () => navLinks.classList.toggle('show'));
-        document.getElementById('logo').addEventListener('click', () => window.location.href = 'index.html');
-    </script>
 </body>
 </html>
